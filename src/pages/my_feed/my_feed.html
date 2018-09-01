@@ -1,0 +1,65 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Feed</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onNewPost()" style="background: #ff9235">
+        <ion-icon name="add-circle" style="color: #fff"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background: #f6f6f6 !important">
+  <div text-center *ngIf="load">
+    <loading-modal></loading-modal>
+  </div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- <ion-card *ngFor="let item of ItemData">
+    <img [src]="item.photo" style="height: 30vh" />
+    <ion-card-content no-padding padding-right>
+      <ion-item>
+        <h3 style="display: inline;font-size: 1.0em"> {{item.photo_title}}</h3>
+        <button ion-button menuToggle item-right style="float: right;box-shadow: none;margin: 0px;padding: 0px;">
+          <ion-icon name="thumbs-up" style="color: #ff9235;"></ion-icon>&nbsp;
+          <span style="color: #ff9235;text-transform: capitalize;">{{item.total_like}} Like</span>
+        </button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-list *ngIf="ItemData">
+    <ion-item *ngFor="let item of ItemData">
+      <ion-thumbnail item-left>
+        <img src="{{item.photo}}" style="border-radius: 60px;" />
+      </ion-thumbnail>
+      <h3>
+        <b>{{item.photo_title}}</b>
+      </h3>
+      <p>
+        <button ion-button style="box-shadow: none;margin: 0px;padding: 0px;">
+          <ion-icon name="thumbs-up" style="color: #0ba5ca;"></ion-icon>&nbsp;
+          <span style="color: #0ba5ca;text-transform: capitalize;">{{item.total_like}} Like</span>
+        </button>
+      </p>
+      <p item-end>
+        <button (click)="remove(item)" ion-button round color="button_color">
+          <span class="button-inner">
+            <ion-icon name="trash" style="color:red"></ion-icon>
+          </span>
+          <div class="button-effect"></div>
+        </button>
+      </p>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="!ItemData && !load">
+    <p>No Data Found</p>
+  </ion-item>
+</ion-content>

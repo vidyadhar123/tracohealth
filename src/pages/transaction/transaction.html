@@ -1,0 +1,83 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Transactions</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+
+  <!-- <ion-segment [(ngModel)]="queryText" full="true" (ionChange)="updateTab()" style="background: linear-gradient(to bottom right, #ff9235, #ffa43f);">
+    <ion-segment-button style="color:#fff" value="all">
+      All
+    </ion-segment-button>
+    <ion-segment-button style="color:#fff" value="collected">
+      COLLECTED
+    </ion-segment-button>
+    <ion-segment-button style="color:#fff" value="redeemed">
+      REDEEMDED
+    </ion-segment-button>
+  </ion-segment> -->
+
+</ion-header>
+
+<ion-content style="background: #f6f6f6 !important">
+  <!-- <ion-row class="row" no-margin no-padding>
+    <ion-col class="col" no-margin no-padding style="background: #fff" *ngIf="queryText == 'all' || queryText == 'collected'">
+      <ion-label no-margin padding-bottom padding-top text-center>
+        <h2 style="font-size: 2.7rem">43</h2>
+        collected
+      </ion-label>
+    </ion-col>
+
+    <ion-col class="col" no-margin no-padding style="background: #fff" *ngIf="queryText == 'all' || queryText == 'redeemed'">
+      <ion-label no-margin padding-bottom padding-top text-center>
+        <h2 style="font-size: 2.7rem">12</h2>
+        Redeemed
+      </ion-label>
+    </ion-col>
+  </ion-row> -->
+  <div text-center *ngIf="load">
+    <loading-modal></loading-modal>
+  </div>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list padding-bottom *ngIf="ItemData">
+    <ion-item *ngFor="let data of ItemData">
+      <h2 style="color:#000000">Bottol:
+        <b style="color:#ff9235">{{data.no_of_bottle_crushed}}</b>
+        <br> Offer:
+        <b style="color:#ff9235">{{data.pbcm_offer}}</b>
+      </h2>
+      <p style="color: green">{{data.transaction_type_name}}</p>
+
+      <ion-note item-end style="color: #888787;">
+        <ion-avatar item-end style="background: #ff9235;color: #fff;border-radius: 50%;padding: 10px;text-align: center;">
+          <span style="font-size: 1.0em !important;">{{data.point}}
+            <br />point</span>
+        </ion-avatar>
+        {{data.date_added | moment:"DD-MMM-YY" | lowercase}}
+      </ion-note>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/img/avatar-ts-jessie.png">
+      </ion-avatar>
+      <h2>Cher</h2>
+      <p>Ugh. As if.</p>
+      <ion-avatar item-end style="background: #ff9235;color: #fff;border-radius: 50%;">
+        <ion-icon name="checkmark" style="font-size: 1.3em;padding: 10px;"></ion-icon>
+      </ion-avatar>
+
+
+    </ion-item> -->
+
+  </ion-list>
+  <ion-item *ngIf="!ItemData && !load">
+    <p>No Data Found</p>
+  </ion-item>
+</ion-content>

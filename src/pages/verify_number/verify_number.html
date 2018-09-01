@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="padding: 0 30px 1px !important;">Verify your phone number</ion-title>
+
+  </ion-navbar>
+</ion-header>
+<!--style="background: linear-gradient(-90deg, #7babf3, #d4d9fb);" -->
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <img class="logo" src="assets/img/tracohealth.png" />
+    </ion-col>
+  </ion-row>
+  <div padding>
+
+
+    <form [formGroup]="ionform">
+      <ion-list class="no-border" no-margin margin-right margin-left>
+        <ion-item style="background: transparent !important;">
+          <ion-label no-margin>Mobile No
+            <span class="danger" *ngIf="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)">*</span>
+          </ion-label>
+        </ion-item>
+        <ion-item style="border: 1px solid #aaa;margin-bottom: 10px !important;">
+          <ion-label>
+            <ion-icon name="call" style="color: #2c59ff;"></ion-icon>
+          </ion-label>
+          <ion-input formControlName="mobileno" type="number" placeholder="Enter your mobile no here" [class.invalid]="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)"
+            required></ion-input>
+        </ion-item>
+      </ion-list>
+
+
+      <!-- <ion-row>
+
+        <ion-col col margin-left style="text-align: center;">
+          <ion-checkbox formControlName="is_check"></ion-checkbox> &nbsp; By Clicking Accept & Verify, you agree to our
+          <a (click)="onTermsPage()" style="color: blue !important;
+            text-decoration: underline;">Terms and Condition.</a>
+        </ion-col>
+      </ion-row> -->
+
+      <ion-row>
+        <ion-col col col-1></ion-col>
+        <ion-col col-10 col>
+          <button ion-button class="login-button" style="color:#fff !important;" color="button_color" (click)="onSignup()" round>Register</button>
+        </ion-col>
+        <ion-col col col-1></ion-col>
+      </ion-row>
+      <p>For new user tap REGISTER, an OTP will be sent to given number for verification.</p>
+      <ion-row>
+        <ion-col class="fancy">
+          <span class="spanheader">or</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col margin-left style="text-align: center;">
+          <b style="font-size: 1.7rem;">Alerady Member?</b>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col col-1></ion-col>
+        <ion-col col-10 col>
+          <button ion-button class="login-button" color="button_color" (click)="onLogin()" round>Login</button>
+        </ion-col>
+        <ion-col col col-1></ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>

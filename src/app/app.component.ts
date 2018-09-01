@@ -1,0 +1,155 @@
+import { Component, ViewChild } from '@angular/core';
+import { Events, MenuController, Nav, Platform, AlertController } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { HomePage } from '../pages/home/home';
+import { UserData } from '../providers/user-data';
+import { LoginPage } from '../pages/login/login';
+// import 'rxjs/add/operator/map';
+// import { GoogleMaps } from '../providers/google-maps';
+// import { Geolocation } from '@ionic-native/geolocation';
+// declare var google: any;
+
+import { VerifyNumberPage } from '../pages/verify_number/verify_number';
+//import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
+
+export interface PageInterface {
+  title: string;
+  name: string;
+  component: any;
+  icon: string;
+  logsOut?: boolean;
+  index?: number;
+  tabName?: string;
+  tabComponent?: any;
+
+}
+
+@Component({
+  templateUrl: 'app.template.html'
+})
+export class ConferenceApp {
+  // the root nav is a child of the root app component
+  // @ViewChild(Nav) gets a reference to the app's root nav
+  @ViewChild(Nav) nav: Nav;
+  // @ViewChild('map') mapElement: ElementRef;
+  // @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
+  rootPage: any;
+  user_name: any;
+  user_profile: any;
+  user_email: any;
+  items: any;
+
+  autocompleteService: any;
+  placesService: any;
+
+  show: boolean = false;
+  inneritems: any;
+
+  constructor(
+    public events: Events,
+    public menu: MenuController,
+    public platform: Platform,
+    public userData: UserData,
+   // public geolocation: Geolocation,
+    public splashScreen: SplashScreen,
+    public alertCtrl: AlertController
+   // public maps: GoogleMaps
+
+  ) {
+    // setTimeout(() => {
+    //   let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement).then(() => {
+
+    //     this.autocompleteService = new google.maps.places.AutocompleteService();
+    //     this.placesService = new google.maps.places.PlacesService(this.maps.map);
+    //     console.log(mapLoaded);
+    //   });
+    // }, 2000);
+
+
+    this.userData.hasLoggedIn().then((hasLoggedIn) => {
+      if (hasLoggedIn) {
+        this.rootPage = HomePage;
+        this.enableMenu(hasLoggedIn === true);
+      } else {
+        this.rootPage = VerifyNumberPage;
+      }
+      this.platformReady()
+    });
+
+
+    this.listenToLoginEvents();
+
+
+    // this.geolocation.getCurrentPosition().then((resp) => {
+
+    //   this.userData.setLat(resp.coords.latitude);
+    //   this.userData.setlng(resp.coords.longitude);
+    // });
+    // ionViewDidLoad() {
+    //   this.http.get(this.url)
+    //     .map(res => res.json())
+    //     .subscribe(data => {
+    //       console.log(data);
+    //       this.items = data;
+    //     });
+
+    //   this.loaddata();
+    // }
+  }
+
+
+  onPage(page: any) {
+    this.nav.setRoot(page);
+  }
+
+
+  listenToLoginEvents() {
+    this.events.subscribe('user:login', () => {
+      this.enableMenu(true);
+    });
+
+    this.events.subscribe('user:signup', () => {
+      this.enableMenu(true);
+    });
+
+    this.events.subscribe('user:logout', () => {
+      // this.rootPage = VerifyNumberPage;
+      this.enableMenu(false);
+    });
+  }
+
+
+
+  ionViewDidEnter() {
+    console.log("Enter App-Component Page");
+  }
+
+
+
+
+  platformReady() {
+    // Call any initial plugins when ready
+    this.platform.ready().then(() => {
+      console.log("go into start");
+      this.splashScreen.hide();
+
+    }).catch((error: any) => {
+      alert('Ready, ' + JSON.stringify(error));
+      console.error(error)
+    });
+  }
+
+
+  enableMenu(loggedIn: boolean) {
+    this.menu.enable(loggedIn, 'loggedOutMenu');
+  }
+
+
+  logout() {
+    console.log("logout");
+    this.userData.logout();
+    this.nav.setRoot(LoginPage);
+  }
+
+
+}

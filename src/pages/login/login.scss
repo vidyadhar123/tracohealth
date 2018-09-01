@@ -1,0 +1,29 @@
+// Styles for all of the user pages:
+// Login, Signup, Support
+
+page-user {
+  .logo {
+    width: 45%;
+    height: auto;
+    max-width: 12em;
+    margin: 0 auto;
+    
+  }
+
+  .list {
+    margin-bottom: 0;
+  }
+
+  ion-item {
+    //border-radius: 30px !important;
+    padding-left: 15px !important;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    border: 1px solid #dedede;
+    box-shadow: none !important;
+  }
+
+  .card-md{
+    box-shadow: none !important;
+  }
+}

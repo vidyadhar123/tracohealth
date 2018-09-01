@@ -1,0 +1,111 @@
+page-home {
+
+
+    .h-container .scroll-content {
+        margin: 0;
+        padding-left: 0!important;
+        padding-right: 0!important
+    }
+    .h-container .row.responsive {
+        border-right: 1px solid #eee;
+        background-color: #444
+    }
+    ion-scroll[scrollX] {
+        white-space: nowrap;
+        height: 120px;
+        overflow: hidden;
+    
+        .scroll-item {
+          display: inline-block;
+          width: 60px !important;
+          height: 60px !important;
+        }
+    
+        .item-avatar {
+            width: 60px !important;
+            height: 60px !important;
+        }
+    
+        .selectable-icon{
+          margin: 10px 20px 10px 20px;
+          color: red;
+          font-size: 100px;
+        }
+    
+        ion-avatar img{
+          margin: 8px;
+        }
+      }
+      ion-scroll[scroll-avatar]{
+        height: 70px; 
+      }
+      .label-md {
+        margin: 0px;
+      }
+      .item-md.item-block .item-inner {
+        padding-right: 0px;
+      }
+
+    .h2-header{
+        color: #000;
+    padding: 16px;
+    font-size: 1.2em;
+    margin-top: 0.8rem;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    background: #efefef;
+    }
+
+    ion-col.col img {
+        margin: auto; 
+        display: block !important;
+        text-align: center; 
+    }
+
+    .card-title {
+        display: block;
+         overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        position: absolute;
+        bottom: 0px;
+        padding: 48px 8px 30px 8px;
+        font-size: 1.1em;
+        width: 100%;
+      //  font-weight: bold;
+        color: #fff;
+        text-shadow: 1px 1px 10px #000;
+        background: linear-gradient(rgba(0, 0, 0, 0) , rgba(0, 0, 0, 1));
+        // background: -webkit-gradient( linear, left bottom, left top, color-stop(1, rgba(0,0,0,0.0)), color-stop(0, rgba(0,0,0,0.5)) );
+    }
+    .card-subtitle {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.9em;
+      position: absolute;
+      bottom: 0px;
+      padding: 0px 8px 8px 8px;
+      width: 100%;
+      color: #fff;
+      text-shadow: 1px 1px 10px #000;
+      font-size: 10px;
+    }
+
+    .p-main{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 16px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .p-sub{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 16px;
+        color: #9a9494;
+        white-space: normal;
+    }
+}

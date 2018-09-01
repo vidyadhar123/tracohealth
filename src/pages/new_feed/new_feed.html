@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>New Feed</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background: #f6f6f6 !important">
+  <ion-card style="margin: 6px;width: calc(100% - 12px);margin-bottom: 10px;">
+    <h3 no-padding padding-right padding-left padding-top style="font-size: 16px;color: #067bbe;">Photos</h3>
+    <ion-scroll scrollX="true" direction="x" style="height: 140px;margin-right: 16px;" no-padding class="h-container">
+      <ion-grid padding-left>
+        <ion-row nowrap>
+          <ion-col col col-4>
+            <img src="assets/img/picture-add.png" (click)="pickImages()">
+          </ion-col>
+          <ion-col col col-4 *ngFor="let image of imageList">
+            <ion-badge id="cancel-badge" (click)="removeImage(image)">
+              <ion-icon name="close-circle" style="color: darkorange;font-size: 1.6em;"></ion-icon>
+            </ion-badge>
+            <img *ngIf="image" [src]="image.image_file_name" style="height: 100px;">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-scroll>
+  </ion-card>
+
+
+  <ion-card>
+    <form [formGroup]="ionform" padding-right padding-bottom>
+      <ion-item style="background: transparent !important;">
+        <ion-label no-margin style="font-weight: bold;">Title
+          <span style="color:red" *ngIf="!ionform.controls.item_title.valid && (ionform.controls.item_title.dirty || submitted)">*</span>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Enter Title" style="border-bottom: 1px solid #aaa;" formControlName="item_title" type="text"></ion-input>
+      </ion-item>
+    </form>
+  </ion-card>
+  <ion-row class="row" no-margin no-padding>
+    <ion-col>
+      <button ion-button type="submit" color="button_all" block round (click)="onPost()"> Post</button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

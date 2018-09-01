@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Location</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only margin-right (click)="selectPlace()">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div #pleaseConnect id="pleaseConnect">
+    <p>Please connect to the Internet...</p>
+  </div>
+
+  <div #map id="map">
+    <ion-spinner></ion-spinner>
+  </div>
+</ion-content>

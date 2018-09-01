@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Feed List</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onNewPost()" style="background: #ff9235">
+        <ion-icon name="add-circle" style="color: #fff"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background: #f6f6f6 !important">
+  <div text-center *ngIf="load">
+    <loading-modal></loading-modal>
+  </div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let item of ItemData">
+    <ion-card-content no-padding padding-right>
+      <ion-item>
+          <h3 style="display: inline;font-size: 1.0em"> {{item.photo_title}}</h3>
+        <button ion-button item-right style="float: right;box-shadow: none;margin: 0px;padding: 0px;" (click)="ReportClick(item.user_photo_id)">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-card-content>
+    <img [src]="item.photo" style="height: 30vh" />
+    <ion-card-content no-padding padding-right>
+      <ion-item>
+        
+        <button ion-button item-right *ngIf="item.user_like_list" style="float: right;box-shadow: none;margin: 0px;padding: 0px;"
+          (click)="unLikePost(item.user_photo_id)">
+          <ion-icon name="thumbs-up" style="color: #0080f1;"></ion-icon>&nbsp;
+          <span style="color: #0080f1;text-transform: capitalize;">{{item.total_like}} Like</span>
+        </button>
+
+        <button ion-button item-right *ngIf="!item.user_like_list" style="float: right;box-shadow: none;margin: 0px;padding: 0px;"
+          (click)="LikePost(item.user_photo_id)">
+          <ion-icon name="thumbs-up" style="color: #9bb7f9;"></ion-icon>&nbsp;
+          <span style="color: #9bb7f9;text-transform: capitalize;">{{item.total_like}} Like</span>
+        </button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-item *ngIf="!ItemData && !load">
+    <p>No Data Found</p>
+  </ion-item>
+</ion-content>

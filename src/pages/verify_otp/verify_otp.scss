@@ -1,0 +1,46 @@
+// Styles for all of the user pages:
+// Login, Signup, Support
+
+page-verify_otp {
+  .no-border {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+  @media only screen and (min-width: 768px) {
+    ion-col.col {
+      margin: 0 auto;
+      max-width: 40%;
+    }
+  }
+  
+  ion-item {
+    // border-radius: 30px !important;
+    padding-left: 10px !important;
+    margin-bottom: 10px !important;
+    background-color: #f6f6f6;
+    opacity: 0.7;
+    font-size: 0.9em;
+
+  }
+  ion-list {
+    margin: 0;
+  }
+  .login-button {
+    width: 100%;
+  }
+  h1{
+    font-size: 3.30rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  .list-md .item-block .item-inner{
+    border-bottom: none !important;
+  }
+  span.danger {
+    color: #941313;
+}
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Traco Health",
+  "short_name": "Traco Health",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/img/appicon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#005d98",
+  "theme_color": "#005d98"
+}

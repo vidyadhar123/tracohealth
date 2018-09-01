@@ -1,0 +1,210 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$headings-font-weight: 300;
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+//background: linear-gradient(to bottom right, #6e6ccd, #7648a2);
+$colors: (
+  primary:    #005d98,// linear-gradient(to bottom right, #6e6ccd, #7648a2),// #30b5d4,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  favorite:   #69BB7B,
+  twitter:    #1da1f4,
+  google:     #dc4a38,
+  vimeo:      #23b6ea,
+  facebook:   #3b5998,
+  button_all: #005d98
+);
+
+
+
+$toolbar-md-background:color($colors, primary);
+
+h1,h2,h3,h4,h5,h6
+{
+  color: #000000,
+}
+// span.button-inner {
+//   color: #fff !important;
+// }
+
+// .toolbar-background-md
+// {
+//   background: linear-gradient(to bottom right, #6e6ccd, #7648a2) !important;
+ 
+// }
+// .toolbar-title-md
+// {
+//   color:#fff !important;
+// }
+
+// ion-content {
+//  // background-image: url('../assets/img/regal.png');
+// }
+ion-spinner * {
+  width: 28px;
+  height: 28px;
+  stroke: #e2557b;
+  //fill: #fff !important;
+}
+
+.button-clear, a {
+  color: color($colors, dark) !important;
+}
+.button-full-md
+{
+  border-radius: 2px !important;
+}
+
+
+@font-face {
+  font-family: "OpenSans";
+  //src: url("../assets/fonts/Nunito-Regular.ttf");
+  src: url("../assets/fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "light";
+  //src: url("../assets/fonts/Nunito-Regular.ttf");
+  src: url("../assets/fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "regular";
+  //src: url("../assets/fonts/Nunito-Regular.ttf");
+  src: url("../assets/fonts/OpenSans-Regular.ttf");
+}
+ion-card-header {
+  color: #000000 !important;
+}
+
+[flat-card] {
+  /*box-shadow: 0px 0px 0px !important;
+  border: 1px solid #dedede;
+  border-radius: 10px !important;*/
+
+  background: #fff;
+  box-shadow: 1px 1px 10px #ddd !important;
+}
+
+ion-list {
+  font-family: 'OpenSans' !important;
+}
+ion-card, ion-app {
+  font-family: 'OpenSans' !important;
+}
+
+span,
+p, ol, ul, li {
+  font-family: 'OpenSans' !important;
+  font-size: 15px !important;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'OpenSans' !important;
+}
+
+ion-label, ion-list{
+ font-family: 'OpenSans' !important;
+}
+
+
+// .alert-md [aria-checked=true] .alert-radio-label {
+//   color: #ff9235 !important;
+// }
+// .alert-md [aria-checked=true] .alert-radio-icon{
+//   border-color: #ff9235 !important;
+// }
+// .alert-md .alert-radio-inner{
+//   background-color: #000 !important;
+// }
+
+ion-content{
+  background-color: #eeeeee;
+  background-image: url(assets/img/background.png);
+  background-position: center center;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+// Use the primary color as the background for the toolbar-md-background
+
+// Change the color of the segment button text
+$toolbar-md-active-color:                 #fff;
+
+// ion-app.md [padding], ion-app.md [padding] .scroll-content {
+//     padding: 0px !;
+// }
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+// Roboto font is used by default for Material Design. Noto sans
+// is used by default for Windows.
+
+@import "roboto";
+@import "noto-sans";

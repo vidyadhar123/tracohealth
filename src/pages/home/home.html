@@ -1,0 +1,126 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+
+
+  <ion-row>
+
+    <div class="main-container-list" style="background: #fff;width: 100%">
+      <h2 no-margin class="h2-header">
+        Our Services
+      </h2>
+      <ion-scroll scrollX="true" direction="x" style="height: 90px" no-padding class="h-container">
+        <ion-grid no-padding no-margin>
+          <ion-row nowrap no-padding no-margin>
+            <ion-col col col-3 no-padding style="margin-left: 10px;margin-top: 10px">
+              <img src="assets/img/health-icon.png" class="scroll-item" />
+            </ion-col>
+
+            <ion-col col col-3 no-padding style="margin-top: 10px">
+              <img src="assets/img/12_healthprofo.png" class="scroll-item" />
+            </ion-col>
+            <ion-col col col-3 no-padding style="margin-top: 10px">
+              <img src="assets/img/images.png" class="scroll-item" />
+            </ion-col>
+            <ion-col col col-3 no-padding style="margin-top: 10px">
+              <img src="assets/img/nursing-services-in-delhi.png" class="scroll-item" />
+            </ion-col>
+            <ion-col col col-3 no-padding style="margin-top: 10px">
+              <img src="assets/img/icon-home.png" class="scroll-item" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-scroll>
+    </div>
+    <!-- <ion-item no-lines style="background: #ededed;">
+      <ion-scroll scrollX="true" scroll-avatar>
+        <ion-avatar class="item-avatar">
+          <div class="scroll-item">
+            <img src="assets/img/health-icon.png" class="scroll-item" />
+          </div>
+          <div class="scroll-item">
+            <img src="assets/img/12_healthprofo.png" class="scroll-item" />
+          </div>
+          <div class="scroll-item">
+            <img src="assets/img/images.png" class="scroll-item" />
+          </div>
+          <div class="scroll-item">
+            <img src="assets/img/nursing-services-in-delhi.png" class="scroll-item" />
+          </div>
+          <div class="scroll-item">
+            <img src="assets/img/icon-home.png" class="scroll-item" />
+          </div>
+        </ion-avatar>
+      </ion-scroll>
+    </ion-item> -->
+  </ion-row>
+  <ion-item no-padding no-margin>
+    <ion-slides autoHeight="true" pager="true" speed="900">
+      <ion-slide class="card-minheight">
+        <img src="assets/img/banner1.jpg" class="slide-image" />
+      </ion-slide>
+      <ion-slide class="card-minheight">
+        <img src="assets/img/banner2.jpg" class="slide-image" />
+      </ion-slide>
+    </ion-slides>
+  </ion-item>
+  <ion-item no-padding no-margin>
+    <h1 style="color: #000;
+    font-size: 1.1em;
+    max-width: 40%;
+    padding-left: 16px;
+    margin-bottom: 10px;">News Feed</h1>
+    <ion-card class="swing" no-margin style="width: 100%">
+      <img src="assets/img/blog1.jpg" class="slide-image" />
+      <h1 class="card-title">Physician Finder</h1>
+      <p class="card-subtitle">Browse our Physician directory to find the doctor that meets your specific needs and location.</p>
+    </ion-card>
+    <!-- <ion-card class="swing" no-margin>
+      <img src="assets/img/blog2.jpg" class="slide-image" />
+      <h1 class="card-title">Patients and Visitors</h1>
+      <p class="card-subtitle">Patients and visitors - learn more about our facility and services, from parking to concierge services and everything
+        in between!</p>
+    </ion-card> -->
+  </ion-item>
+
+  <div class="main-container-list" style="background: #fff;">
+    <h1 style="color: #000;
+      font-size: 1.1em;
+      max-width: 40%;
+      padding-left: 16px;
+      margin-bottom: 10px;">Why Help?</h1>
+    <ion-scroll scrollX="true" direction="x" style="height: 170px" no-padding class="h-container">
+      <ion-grid no-padding no-margin>
+        <ion-row nowrap no-padding no-margin>
+          <ion-col col col-8 no-padding style="margin-left: 10px;margin-top: 10px">
+            <ion-card class="swing" no-margin style="box-shadow: none;border: 3px solid #efefef;">
+              <p class="p-main">
+                <ion-icon name="hand" style="color: #005d98;"></ion-icon>
+                <br> Promise</p>
+              <p class="p-sub">Everything Provide base Facilities.</p>
+            </ion-card>
+          </ion-col>
+          <ion-col col col-8 no-padding style="margin-left: 10px;margin-top: 10px">
+            <ion-card class="swing" no-margin style="box-shadow: none;border: 3px solid #efefef;">
+              <p class="p-main">
+                <ion-icon name="bookmark" style="color: #005d98;"></ion-icon>
+                <br>Services</p>
+              <p class="p-sub">Heath Care Best Facilities and Services</p>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-scroll>
+  </div>
+</ion-content>

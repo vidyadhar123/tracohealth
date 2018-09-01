@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="padding: 0 30px 1px !important;">Verify OTP</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <!-- style="background: linear-gradient(#fd7924 , #ff9132, #ffa841);" -->
+  <div padding>
+    <p>Please enter OTP you have received in your INBOX.</p>
+    
+    <form [formGroup]="ionform">
+      <ion-list class="no-border" no-margin margin-left margin-right>
+
+        <ion-item *ngIf="mobileno">
+          <span item-left no-margin style="font-size: 1.4rem !important;">Your number is: </span>
+          <span item-right no-margin>
+            <b>+91 {{mobileno}}</b>
+          </span>
+        </ion-item>
+        <ion-item margin-bottom style="border: 1px solid #aaa;">
+         
+          <ion-input type="number" formControlName="otp" placeholder="Enter OTP here" [class.invalid]="!ionform.controls.otp.valid && (ionform.controls.otp.dirty || submitted)"
+            required></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-row>
+        <ion-col padding-left padding-right>
+          <button ion-button class="login-button" color="button_color" (click)="onSignup()" round>Verify</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+    <p *ngIf="otp">otp is: {{otp}}</p>
+  </div>
+</ion-content>

@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="padding: 0 30px 1px !important;">Add Child Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="loading">
+        <ion-spinner name="ios"></ion-spinner>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+
+  <!-- <ion-list class="no-border" no-margin margin-left margin-right>
+
+      <ion-item>
+        <span item-left no-margin>Your number is: </span>
+        <span item-right no-margin>+91 7600015403</span>
+      </ion-item>
+      <ion-item margin-bottom>
+        <ion-input type="number" placeholder="Enter OTP here" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-row>
+      <ion-col padding-left padding-right>
+        <button ion-button class="login-button" color="button_color" (click)="onSignup(signupForm)">Verify</button>
+      </ion-col>
+    </ion-row> -->
+
+  <ion-list>
+
+    <form [formGroup]="form">
+
+      <div formArrayName="technologies" margin-bottom>
+        <section [formGroupName]="i" *ngFor="let tech of form.controls.technologies.controls; let i = index">
+          <span class="spanhead">Your {{ i + 1 }} child detail</span>
+          <ion-item-group>
+            <span id="sp" float-right ion-button icon-left style="color: #005d98 !important;" clear *ngIf="form.controls.technologies.length > 1"
+              (click)="removeInputField(i)">
+              <ion-icon name="close"></ion-icon>
+              Remove
+            </span>
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">First Name</ion-item-divider>
+            <ion-item style="border: 1px solid #aaa;">
+              <ion-input type="text" placeholder="Child First Name" maxlength="50" formControlName="name"></ion-input>
+            </ion-item>
+
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Last Name</ion-item-divider>
+            <ion-item style="border: 1px solid #aaa;">
+              <ion-input type="text" placeholder="Child Last Name" maxlength="50" formControlName="lname"></ion-input>
+            </ion-item>
+
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Date Of Birth</ion-item-divider>
+            <ion-item no-padding no-margin style="border: 1px solid #aaa;">
+              <ion-datetime placeholder="Child Birth Date" displayFormat="DDDD MMM D, YYYY" max="2050-12-31" min="1950-12-31" pickerFormat="DD MMM YYYY"
+                formControlName="bdate"></ion-datetime>
+            </ion-item>
+
+
+            <!-- 
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Age</ion-item-divider>
+            <ion-item style="border: 1px solid #aaa;">
+              <ion-input type="text" placeholder="Age" maxlength="50" formControlName="age"></ion-input>
+            </ion-item>
+ -->
+
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Height</ion-item-divider>
+            <ion-item style="border: 1px solid #aaa;">
+              <ion-input type="text" placeholder="Child Height" maxlength="50" formControlName="height"></ion-input>
+            </ion-item>
+
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Weight </ion-item-divider>
+            <ion-item style="border: 1px solid #aaa;">
+              <ion-input type="text" placeholder="Child Weight" maxlength="50" formControlName="weight"></ion-input>
+            </ion-item>
+
+
+            <!-- Allow generated input field to be removed -->
+
+          </ion-item-group>
+        </section>
+      </div>
+
+      <span id="sp" ion-button float-left icon-left clear style="color: #005d98 !important;" (click)="addNewInputField()">
+        <ion-icon name="add"></ion-icon>
+        Add a new child
+      </span>
+    </form>
+
+
+
+
+  </ion-list>
+  <br/>
+  <ion-row responsive-sm style="display: block" margin-top>
+    <ion-col>
+      <button ion-button type="submit" (click)="onRegister()" color="button_all" block round>Proceed</button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

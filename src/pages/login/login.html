@@ -1,0 +1,50 @@
+<!-- style="background: linear-gradient(to bottom right, #ff9235, #ffa43f);" -->
+<ion-content padding>
+  <div style="padding-top: 10%;">
+    <form [formGroup]="ionform">
+      <ion-card style="background: transparent;">
+        <ion-card-content no-padding>
+
+          <ion-row>
+            <ion-col>
+              <img class="logo" src="assets/img/Teacho-Health.png" />
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-list inset class="no-border">
+                <ion-item style="margin-bottom: 10px;border: 1px solid #aaa;">
+                  <ion-label>
+                    <ion-icon name="mail" style="color: #2c59ff;"></ion-icon>
+                  </ion-label>
+                  <ion-input formControlName="email" type="email" placeholder="Enter Email" [class.invalid]="!ionform.controls.email.valid && (ionform.controls.email.dirty || submitted)"></ion-input>
+                </ion-item>
+
+                <ion-item style="margin-bottom: 10px;border: 1px solid #aaa;">
+                  <ion-label>
+                    <ion-icon name="lock" style="color: #2c59ff;"></ion-icon>
+                  </ion-label>
+                  <ion-input formControlName="password" type="password" placeholder="Enter password" [class.invalid]="!ionform.controls.password.valid && (ionform.controls.password.dirty || submitted)"></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row padding-left padding-right>
+            <ion-col>
+              <button ion-button round type="submit" (click)="onLogin()" color="button_all" block style="color: #fff">Login</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <!-- <ion-col col margin-left style="text-align: center;">
+              <a style="font-size: 1.6rem;" (click)="onRegister()">New user ?,
+                <b style="color:#2522f7 !important;text-decoration-line: underline;">sign up</b>
+              </a>
+            </ion-col>
+--></ion-row>
+
+        </ion-card-content>
+      </ion-card>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-split-pane>
+
+  <!-- logged out menu -->
+  <ion-menu [content]="content" id="loggedOutMenu">
+
+    <ion-header hidden>
+      <ion-toolbar>
+        <!-- <ion-title> PBCM</ion-title> -->
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="outer-content">
+
+      <ion-list padding-top padding-bottom>
+        <ion-item>
+          <ion-row>
+            <ion-col>
+              <img class="logo" src="assets/img/tracohealth.png" />
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+
+
+      <ion-list>
+
+        <button style="border-bottom: none" ion-item menuClose (click)="onPage('HomePage')">
+          <ion-icon name="home" item-start></ion-icon>Home
+        </button>
+        <button style="border-bottom: none" ion-item menuClose>
+          <ion-icon name="appstore" item-start></ion-icon>Rate App
+        </button>
+
+        <button style="border-bottom: none" ion-item menuClose>
+          <ion-icon name="ios-archive" item-start></ion-icon>Report Isuue
+        </button>
+        <!-- <button style="border-bottom: none" ion-item menuClose (click)="onPage('MyFeedPage')">
+          <ion-icon name="feed" item-start></ion-icon>My Feed
+        </button> -->
+        <button style="border-bottom: none" ion-item menuClose>
+          <ion-icon name="contact" item-start></ion-icon>Invite Friends
+        </button>
+
+        <button style="border-bottom: none" ion-item menuClose>
+          <ion-icon name="paper" item-start></ion-icon>Terms Of Services
+        </button>
+
+        <!-- <button style="border-bottom: none" ion-item menuClose (click)="logout()">
+          <ion-icon name="exit" item-start></ion-icon>Logout
+        </button> -->
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!--   
+  <div #pleaseConnect id="pleaseConnect">
+    <p></p>
+  </div>
+
+  <div #map id="map">
+  </div> -->
+
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>
+
+</ion-split-pane>
