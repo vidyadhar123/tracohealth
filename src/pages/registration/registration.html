@@ -57,16 +57,42 @@
         <ion-input placeholder="Enter Your Last Name" formControlName="lastname" type="text" [class.invalid]="!ionform.controls.lastname.valid && (ionform.controls.lastname.dirty || submitted)"></ion-input>
       </ion-item>
 
+      <ion-item style="background: transparent !important;">
+        <ion-label no-margin>Email
+          <span class="danger" *ngIf="!ionform.controls.email.valid && (ionform.controls.email.dirty || submitted)">*</span>
+        </ion-label>
+      </ion-item>
+
+      <ion-item style="border: 1px solid #aaa;margin-bottom: 16px !important;">
+        <ion-label>
+          <ion-icon name="contact" style="color: #2c59ff;"></ion-icon>
+        </ion-label>
+        <ion-input placeholder="Enter Your Email" formControlName="email" type="email" [class.invalid]="!ionform.controls.email.valid && (ionform.controls.email.dirty || submitted)"></ion-input>
+      </ion-item>
+
+      <ion-item style="background: transparent !important;">
+        <ion-label no-margin>Password
+          <span class="danger" *ngIf="!ionform.controls.password.valid && (ionform.controls.password.dirty || submitted)">* required(min 6)</span>
+        </ion-label>
+      </ion-item>
+
+      <ion-item style="border: 1px solid #aaa;margin-bottom: 16px !important;">
+        <ion-label>
+          <ion-icon name="contact" style="color: #2c59ff;"></ion-icon>
+        </ion-label>
+        <ion-input placeholder="Enter Your Password" formControlName="password" type="password" [class.invalid]="!ionform.controls.password.valid && (ionform.controls.password.dirty || submitted)"></ion-input>
+      </ion-item>
+
       <ion-item>
         <ion-label>Select Gender
         </ion-label>
       </ion-item>
 
       <ion-segment color="primary" formControlName="gender" style="margin-bottom: 16px !important;">
-        <ion-segment-button value="Male">
+        <ion-segment-button value="1">
           Male
         </ion-segment-button>
-        <ion-segment-button value="Female">
+        <ion-segment-button value="0">
           Female
         </ion-segment-button>
       </ion-segment>
@@ -77,12 +103,14 @@
         </ion-label>
       </ion-item>
       <ion-item no-padding no-margin style="border: 1px solid #aaa;">
-        <ion-datetime  placeholder="Enter your Birth Date" displayFormat="DDDD MMM D, YYYY" max="2050-12-31" min="1950-12-31" pickerFormat="DD MMM YYYY" formControlName="birthdate"></ion-datetime>
+        <ion-datetime placeholder="Enter your Birth Date" displayFormat="DDDD MMM D, YYYY" max="2050-12-31" min="1950-12-31" pickerFormat="DD MMM YYYY"
+          formControlName="birthdate"></ion-datetime>
       </ion-item>
 
     </form>
 
- 
+
+
 
     <!-- <form [formGroup]="form">
 

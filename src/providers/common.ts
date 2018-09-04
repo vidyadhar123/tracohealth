@@ -28,9 +28,18 @@ export class Common {
 	}
 
 	//	private URL_ROOT: string = "http://diamond.servsme.in";
-	private URL_ROOT: string = "http://pbcm.servsme.in/service/";
+	private URL_ROOT: string = "http://49.50.103.230:81/api/";
 
 	//http://pbcm.servsme.in/service/user_api/get_feed_list?user_id=2
+
+
+	//Api URl 
+
+	//Parent_call 
+	public PARENT_REFGISTRATION: string = this.URL_ROOT + "User/CreateUser";
+	public PARENT_LOGIN: string = this.URL_ROOT + "Authentication/Login";
+	public CHILD_REFGISTRATION: string = this.URL_ROOT + "User/CreateUser";
+
 
 	public USER_LOGIN: string = this.URL_ROOT + "user_api/user_login";
 	public USER_REGISTRATION: string = this.URL_ROOT + "user_api/registration";

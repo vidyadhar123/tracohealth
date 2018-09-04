@@ -67,12 +67,12 @@
   </ion-row>
   <ion-item no-padding no-margin>
     <ion-slides autoHeight="true" pager="true" speed="900">
-      <ion-slide class="card-minheight">
-        <img src="assets/img/banner1.jpg" class="slide-image" />
+      <ion-slide class="card-minheight" *ngFor="let prod of home_array">
+        <img src="{{prod.media.src}}" class="slide-image" />
       </ion-slide>
-      <ion-slide class="card-minheight">
+      <!-- <ion-slide class="card-minheight">
         <img src="assets/img/banner2.jpg" class="slide-image" />
-      </ion-slide>
+      </ion-slide> -->
     </ion-slides>
   </ion-item>
   <ion-item no-padding no-margin>
@@ -80,11 +80,42 @@
     font-size: 1.1em;
     max-width: 40%;
     padding-left: 16px;
-    margin-bottom: 10px;">News Feed</h1>
-    <ion-card class="swing" no-margin style="width: 100%">
-      <img src="assets/img/blog1.jpg" class="slide-image" />
-      <h1 class="card-title">Physician Finder</h1>
-      <p class="card-subtitle">Browse our Physician directory to find the doctor that meets your specific needs and location.</p>
+    margin-bottom: 10px;">
+      <b>News Feed</b>
+    </h1>
+    <ion-card class="swing" no-margin style="width: 100%" *ngFor="let prod of News_array">
+
+      <!-- <h1 class="card-title">{{prod.header}}</h1>
+      <p class="card-subtitle">{{prod.Content}}</p> -->
+      <ion-item>
+        <h2>{{prod.header}}</h2>
+      </ion-item>
+
+      <img src="{{prod.src}}" class="slide-image" />
+
+      <ion-card-content>
+        <p style="white-space: normal;">{{prod.Content}}</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>Likes</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+
+          </ion-note>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="share"></ion-icon>
+            <div>Share</div>
+          </button>
+        </ion-col>
+
+      </ion-row>
     </ion-card>
     <!-- <ion-card class="swing" no-margin>
       <img src="assets/img/blog2.jpg" class="slide-image" />
