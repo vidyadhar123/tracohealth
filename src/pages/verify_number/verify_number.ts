@@ -16,7 +16,7 @@ export class VerifyNumberPage {
   constructor(public navCtrl: NavController, public formBuilder: FormBuilder) {
 
     this.ionform = formBuilder.group({
-      mobileno: ['', Validators.compose([Validators.minLength(10), Validators.required])],
+      mobileno: ['', Validators.compose([Validators.minLength(9), Validators.required])],
       is_check: [true, Validators.compose([Validators.required])],
     })
   }

@@ -58,12 +58,12 @@ export class VerifyOtpPage {
 
     this.submitted = true;
 
-   // this.navCtrl.push('RegistrationPage');
+    // this.navCtrl.push('RegistrationPage');
 
     if (this.ionform.valid) {
 
       if (this.otp == this.ionform.value.otp) {
-          this.navCtrl.push('RegistrationPage', { user_detail: this.user_detail });
+        this.navCtrl.push('RegistrationPage', { user_detail: this.user_detail, mobile: this.mobileno });
 
       }
       else {
