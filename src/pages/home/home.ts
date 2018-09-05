@@ -24,7 +24,11 @@ export class HomePage {
         "productId": "2",
         "media": {
           "type": "video",
+<<<<<<< HEAD
           "src": "assets/img/ban2.jpg"
+=======
+          "src": "assets/img/pill-bottle.jpg"
+>>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
         },
         "description": "Lorem Ipsum as model will many web sites still over publishing the years."
       }
@@ -69,9 +73,12 @@ export class HomePage {
 
   //Load banner and retrive image category wise 
 
+<<<<<<< HEAD
   onTracker() {
     this.navCtrl.push(NewFeedPage);
   }
+=======
+>>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
 
 
 

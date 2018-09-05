@@ -61,6 +61,7 @@
     max-width: 40%;
     padding-left: 16px;
     margin-bottom: 10px;">
+<<<<<<< HEAD
     <b>News Feed</b>
   </h1>
   <ion-card class="swing" no-margin style="width: 100%" *ngFor="let prod of News_array">
@@ -93,6 +94,51 @@
 
     </ion-row>
   </ion-card>
+=======
+      <b>News Feed</b>
+    </h1>
+    <ion-card class="swing" no-margin style="width: 100%" *ngFor="let prod of News_array">
+
+      <!-- <h1 class="card-title">{{prod.header}}</h1>
+      <p class="card-subtitle">{{prod.Content}}</p> -->
+      <ion-item>
+        <h2>{{prod.header}}</h2>
+      </ion-item>
+
+      <img src="{{prod.src}}" class="slide-image" />
+
+      <ion-card-content>
+        <p style="white-space: normal;">{{prod.Content}}</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>Likes</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+
+          </ion-note>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="share"></ion-icon>
+            <div>Share</div>
+          </button>
+        </ion-col>
+
+      </ion-row>
+    </ion-card>
+    <!-- <ion-card class="swing" no-margin>
+      <img src="assets/img/blog2.jpg" class="slide-image" />
+      <h1 class="card-title">Patients and Visitors</h1>
+      <p class="card-subtitle">Patients and visitors - learn more about our facility and services, from parking to concierge services and everything
+        in between!</p>
+    </ion-card> -->
+  </ion-item>
+>>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
 
 </ion-content>
 <ion-footer>

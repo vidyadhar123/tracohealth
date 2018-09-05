@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "tracohealth",
   "short_name": "tracohealth",
+=======
+  "name": "Tracohealth",
+  "short_name": "Tracohealth",
+>>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
