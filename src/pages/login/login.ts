@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,/* LoadingController,*/ ToastController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Common } from '../../providers/common';
 //import { HomePage } from '../home/home';
@@ -28,7 +28,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     //private device: Device,
     public toastCtrl: ToastController,
-    // public loadingCtrl: LoadingController,
+    public loadingCtrl: LoadingController,
     private http: Http,
     public userdata: UserData,
     public navParams: NavParams,
@@ -51,7 +51,10 @@ export class LoginPage {
       headers.append('Access-Control-Allow-Origin', '*')
       headers.append('Content-Type', 'application/json; charset=utf-8');
       // console.log(params);
-      this.loading = true;
+      let loader = this.loadingCtrl.create({
+
+      });
+      loader.present();
 
       let url = this.common.PARENT_LOGIN;
       console.log(url);
@@ -62,6 +65,7 @@ export class LoginPage {
           console.log(data);
           if (data) {
             this.navCtrl.setRoot(HomePage);
+            loader.dismiss();
           }
           else {
             const toast = this.toastCtrl.create({
@@ -69,31 +73,25 @@ export class LoginPage {
               duration: 2000
             });
             toast.present();
+            loader.dismiss();
           }
-          // if (data.success) {
-          //   console.log("done");
-          //   this.loading = false;
-          //   console.log(data.data[0]);
-          //   // this.navCtrl.setRoot(HomePage);
-          //   // this.user_data = data.data[0];
-          //   // this.userdata.user_register(this.user_data.user_id, this.user_data.firstname, this.user_data.lastname, this.ionform.value.email, this.ionform.value.password, this.user_data.mobile_no, this.user_data.qr_code);
-
-          // }
-          // else {
-          //   const toast = this.toastCtrl.create({
-          //     message: data.message,
-          //     duration: 2000
-          //   });
-          //   toast.present();
-          //   this.loading = false;
 
         }, error => {
+          loader.dismiss().then(_ => {
+            const toast = this.toastCtrl.create({
+              message: "Something went wrong! please try again",
+              duration: 2000
+            });
+            toast.present();
+          });
           var data = error.json();
           console.log(data);
-          this.loading = false;
+
+
         });
     }
     else {
+      //  loader.dismiss();
       const toast = this.toastCtrl.create({
         message: "Invalid Credential",
         duration: 2000

@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import { ModalController, NavController,/* Platform,*/ AlertController } from 'ionic-angular';
+import { NewFeedPage } from '../new_feed/new_feed';
 
 @Component({
   selector: 'page-home',
@@ -23,7 +24,7 @@ export class HomePage {
         "productId": "2",
         "media": {
           "type": "video",
-          "src": "assets/img/pill-bottle.jpg"
+          "src": "assets/img/ban2.jpg"
         },
         "description": "Lorem Ipsum as model will many web sites still over publishing the years."
       }
@@ -68,6 +69,9 @@ export class HomePage {
 
   //Load banner and retrive image category wise 
 
+  onTracker() {
+    this.navCtrl.push(NewFeedPage);
+  }
 
 
 

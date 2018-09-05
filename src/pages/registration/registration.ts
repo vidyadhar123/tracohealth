@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,/* LoadingController,*/ ToastController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Common } from '../../providers/common';
 import { Http, Headers } from '@angular/http';
@@ -28,7 +28,7 @@ export class RegistrationPage {
   constructor(public navCtrl: NavController,
     // private device: Device,
     public toastCtrl: ToastController,
-    // public loadingCtrl: LoadingController,
+    public loadingCtrl: LoadingController,
     private http: Http,
     public userdata: UserData,
     public navParams: NavParams,
@@ -84,8 +84,10 @@ export class RegistrationPage {
       headers.append('Access-Control-Allow-Origin', '*')
       headers.append('Content-Type', 'application/json; charset=utf-8');
       console.log(params);
-      this.loading = true;
+      let loader = this.loadingCtrl.create({
 
+      });
+      loader.present();
       let url = this.common.PARENT_REFGISTRATION;
       console.log(url);
       this.http.post(url, params, { headers: headers })
@@ -96,22 +98,28 @@ export class RegistrationPage {
           console.log(data);
           if (data) {
             console.log("done");
-            this.loading = false;
+            loader.dismiss();
             //this.userdata.user_register(data.user_id, this.ionform.value.firstname, this.ionform.value.lastname, this.ionform.value.email, this.ionform.value.password, this.ionform.value.mobileno, data.qr_code);
             this.navCtrl.setRoot(HomePage);
           }
           else {
             const toast = this.toastCtrl.create({
-              message: data.message,
+              message: "Something went wrong! please try again",
               duration: 2000
             });
             toast.present();
-            this.loading = false;
+            loader.dismiss();
+
           }
         }, error => {
           var data = error.json();
           console.log(data);
-          this.loading = false;
+          loader.dismiss();
+          const toast = this.toastCtrl.create({
+            message: "Something went wrong! please try again",
+            duration: 2000
+          });
+          toast.present();
         });
     }
   }

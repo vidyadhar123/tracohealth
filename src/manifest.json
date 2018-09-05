@@ -1,6 +1,6 @@
 {
-  "name": "Tracohealth",
-  "short_name": "Tracohealth",
+  "name": "tracohealth",
+  "short_name": "tracohealth",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

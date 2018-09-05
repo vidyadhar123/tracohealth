@@ -4,50 +4,125 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>New Feed</ion-title>
-    <ion-buttons end>
+    <ion-title>tracohealth</ion-title>
+    <ion-buttons end style="padding-right: 8px;">
+      <span style="color: #fff;font-size: 1.5rem !important;"> Gurugram</span>
+      <ion-icon name="arrow-dropdown" style="color: #fff;"></ion-icon>
     </ion-buttons>
   </ion-navbar>
 
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <ion-item>
+          <ion-label>Child</ion-label>
+          <ion-select [(ngModel)]="child">
+            <ion-option value="sunny" selected>sunny</ion-option>
+            <ion-option value="kalpesh">kalpesh</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col no-padding>
+        <ion-item>
+          <ion-label>age</ion-label>
+          <ion-select [(ngModel)]="age">
+            <ion-option value="0-2" selected>0-2</ion-option>
+            <ion-option value="2-5">2-5</ion-option>
+            <ion-option value="5-12">5-12</ion-option>
+            <ion-option value="12-18">12-18</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
-<ion-content style="background: #f6f6f6 !important">
-  <ion-card style="margin: 6px;width: calc(100% - 12px);margin-bottom: 10px;">
-    <h3 no-padding padding-right padding-left padding-top style="font-size: 16px;color: #067bbe;">Photos</h3>
-    <ion-scroll scrollX="true" direction="x" style="height: 140px;margin-right: 16px;" no-padding class="h-container">
-      <ion-grid padding-left>
-        <ion-row nowrap>
-          <ion-col col col-4>
-            <img src="assets/img/picture-add.png" (click)="pickImages()">
-          </ion-col>
-          <ion-col col col-4 *ngFor="let image of imageList">
-            <ion-badge id="cancel-badge" (click)="removeImage(image)">
-              <ion-icon name="close-circle" style="color: darkorange;font-size: 1.6em;"></ion-icon>
-            </ion-badge>
-            <img *ngIf="image" [src]="image.image_file_name" style="height: 100px;">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-scroll>
+<ion-content style="background: #efefef !important;" padding>
+
+  <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;" *ngFor="let news of Tracker_array">
+
+    <ion-item>
+      <h2>
+        <b>{{news.header}}</b>
+      </h2>
+    </ion-item>
+
+    <img src="{{news.media.src}}" class="slide-image" />
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small style="border: 1px solid #c4bcbc;">
+          <div>Yes</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <button ion-button icon-start clear small style="border: 1px solid #c4bcbc;">
+          <div>No</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small style="border: 1px solid #c4bcbc;">
+          <div>Not Sure</div>
+        </button>
+      </ion-col>
+
+    </ion-row>
   </ion-card>
-
-
-  <ion-card>
-    <form [formGroup]="ionform" padding-right padding-bottom>
-      <ion-item style="background: transparent !important;">
-        <ion-label no-margin style="font-weight: bold;">Title
-          <span style="color:red" *ngIf="!ionform.controls.item_title.valid && (ionform.controls.item_title.dirty || submitted)">*</span>
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-input placeholder="Enter Title" style="border-bottom: 1px solid #aaa;" formControlName="item_title" type="text"></ion-input>
-      </ion-item>
-    </form>
-  </ion-card>
-  <ion-row class="row" no-margin no-padding>
-    <ion-col>
-      <button ion-button type="submit" color="button_all" block round (click)="onPost()"> Post</button>
-    </ion-col>
-  </ion-row>
-
 </ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Tracker
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Tips
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Summary
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="bowtie"></ion-icon>
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

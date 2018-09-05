@@ -4,18 +4,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Dashboard</ion-title>
+    <ion-title>tracohealth</ion-title>
+    <ion-buttons end style="padding-right: 8px;">
+      <span style="color: #fff;font-size: 1.5rem !important;"> Gurugram</span>
+      <ion-icon name="arrow-dropdown" style="color: #fff;"></ion-icon>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content no-padding>
-
-
-
+<ion-content style="background: #efefef !important;" no-padding>
   <ion-row>
-
     <div class="main-container-list" style="background: #fff;width: 100%">
       <h2 no-margin class="h2-header">
         Our Services
@@ -23,12 +23,11 @@
       <ion-scroll scrollX="true" direction="x" style="height: 90px" no-padding class="h-container">
         <ion-grid no-padding no-margin>
           <ion-row nowrap no-padding no-margin>
+            <ion-col col col-3 no-padding style="margin-top: 10px" (click)="onTracker()">
+              <img src="assets/img/12_healthprofo.png" class="scroll-item" />
+            </ion-col>
             <ion-col col col-3 no-padding style="margin-left: 10px;margin-top: 10px">
               <img src="assets/img/health-icon.png" class="scroll-item" />
-            </ion-col>
-
-            <ion-col col col-3 no-padding style="margin-top: 10px">
-              <img src="assets/img/12_healthprofo.png" class="scroll-item" />
             </ion-col>
             <ion-col col col-3 no-padding style="margin-top: 10px">
               <img src="assets/img/images.png" class="scroll-item" />
@@ -43,29 +42,10 @@
         </ion-grid>
       </ion-scroll>
     </div>
-    <!-- <ion-item no-lines style="background: #ededed;">
-      <ion-scroll scrollX="true" scroll-avatar>
-        <ion-avatar class="item-avatar">
-          <div class="scroll-item">
-            <img src="assets/img/health-icon.png" class="scroll-item" />
-          </div>
-          <div class="scroll-item">
-            <img src="assets/img/12_healthprofo.png" class="scroll-item" />
-          </div>
-          <div class="scroll-item">
-            <img src="assets/img/images.png" class="scroll-item" />
-          </div>
-          <div class="scroll-item">
-            <img src="assets/img/nursing-services-in-delhi.png" class="scroll-item" />
-          </div>
-          <div class="scroll-item">
-            <img src="assets/img/icon-home.png" class="scroll-item" />
-          </div>
-        </ion-avatar>
-      </ion-scroll>
-    </ion-item> -->
+
   </ion-row>
-  <ion-item no-padding no-margin>
+  <ion-item no-padding style="margin:10px;width: calc(100% - 20px) !important;box-shadow: 0px 0px 4px 4px #e8e6e7 !important;
+  border-radius: 2px;">
     <ion-slides autoHeight="true" pager="true" speed="900">
       <ion-slide class="card-minheight" *ngFor="let prod of home_array">
         <img src="{{prod.media.src}}" class="slide-image" />
@@ -75,83 +55,71 @@
       </ion-slide> -->
     </ion-slides>
   </ion-item>
-  <ion-item no-padding no-margin>
-    <h1 style="color: #000;
+
+  <h1 style="color: #000;
     font-size: 1.1em;
     max-width: 40%;
     padding-left: 16px;
     margin-bottom: 10px;">
-      <b>News Feed</b>
-    </h1>
-    <ion-card class="swing" no-margin style="width: 100%" *ngFor="let prod of News_array">
+    <b>News Feed</b>
+  </h1>
+  <ion-card class="swing" no-margin style="width: 100%" *ngFor="let prod of News_array">
+    <ion-item>
+      <h2>{{prod.header}}</h2>
+    </ion-item>
 
-      <!-- <h1 class="card-title">{{prod.header}}</h1>
-      <p class="card-subtitle">{{prod.Content}}</p> -->
-      <ion-item>
-        <h2>{{prod.header}}</h2>
-      </ion-item>
+    <img src="{{prod.src}}" class="slide-image" />
 
-      <img src="{{prod.src}}" class="slide-image" />
+    <ion-card-content>
+      <p style="white-space: normal;">{{prod.Content}}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>Likes</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+        </ion-note>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="share"></ion-icon>
+          <div>Share</div>
+        </button>
+      </ion-col>
 
-      <ion-card-content>
-        <p style="white-space: normal;">{{prod.Content}}</p>
-      </ion-card-content>
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-start clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>Likes</div>
-          </button>
-        </ion-col>
-        <ion-col center text-center>
-          <ion-note>
+    </ion-row>
+  </ion-card>
 
-          </ion-note>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-start clear small>
-            <ion-icon name="share"></ion-icon>
-            <div>Share</div>
-          </button>
-        </ion-col>
-
-      </ion-row>
-    </ion-card>
-    <!-- <ion-card class="swing" no-margin>
-      <img src="assets/img/blog2.jpg" class="slide-image" />
-      <h1 class="card-title">Patients and Visitors</h1>
-      <p class="card-subtitle">Patients and visitors - learn more about our facility and services, from parking to concierge services and everything
-        in between!</p>
-    </ion-card> -->
-  </ion-item>
-
-  <div class="main-container-list" style="background: #fff;">
-    <h1 style="color: #000;
-      font-size: 1.1em;
-      max-width: 40%;
-      padding-left: 16px;
-      margin-bottom: 10px;">Why Help?</h1>
-    <ion-scroll scrollX="true" direction="x" style="height: 170px" no-padding class="h-container">
-      <ion-grid no-padding no-margin>
-        <ion-row nowrap no-padding no-margin>
-          <ion-col col col-8 no-padding style="margin-left: 10px;margin-top: 10px">
-            <ion-card class="swing" no-margin style="box-shadow: none;border: 3px solid #efefef;">
-              <p class="p-main">
-                <ion-icon name="hand" style="color: #005d98;"></ion-icon>
-                <br> Promise</p>
-              <p class="p-sub">Everything Provide base Facilities.</p>
-            </ion-card>
-          </ion-col>
-          <ion-col col col-8 no-padding style="margin-left: 10px;margin-top: 10px">
-            <ion-card class="swing" no-margin style="box-shadow: none;border: 3px solid #efefef;">
-              <p class="p-main">
-                <ion-icon name="bookmark" style="color: #005d98;"></ion-icon>
-                <br>Services</p>
-              <p class="p-sub">Heath Care Best Facilities and Services</p>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-scroll>
-  </div>
 </ion-content>
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 50px;border-radius: 0px !important;box-shadow: none!important;" no-padding
+          no-margin class="btn">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 50px;border-radius: 0px !important;box-shadow: none!important;" no-padding
+          no-margin class="btn">
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 50px;border-radius: 0px !important;box-shadow: none!important;" no-padding
+          no-margin class="btn">
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 50px;border-radius: 0px !important;box-shadow: none!important;" no-padding
+          no-margin class="btn">
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
