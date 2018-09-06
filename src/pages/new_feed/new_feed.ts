@@ -67,6 +67,9 @@ export class NewFeedPage {
     console.log(this.queryText);
   }
 
+  onSummary() {
+    this.navCtrl.push("TrackSummaryPage");
+  }
 
 
 }

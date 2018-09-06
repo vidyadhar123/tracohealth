@@ -41,17 +41,18 @@
               <ion-icon name="close"></ion-icon>
               Remove
             </span>
-            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">First Name</ion-item-divider>
+            
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">First Name <span class="danger" *ngIf="!tech.controls.name.valid && (tech.controls.name.dirty || submitted)">* required(min 2)</span></ion-item-divider>
             <ion-item style="border: 1px solid #aaa;">
               <ion-input type="text" placeholder="Child First Name" maxlength="50" formControlName="name"></ion-input>
             </ion-item>
 
-            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Last Name</ion-item-divider>
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Last Name<span class="danger" *ngIf="!tech.controls.lname.valid && (tech.controls.lname.dirty || submitted)">* required(min 2)</span></ion-item-divider>
             <ion-item style="border: 1px solid #aaa;">
               <ion-input type="text" placeholder="Child Last Name" maxlength="50" formControlName="lname"></ion-input>
             </ion-item>
 
-            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Date Of Birth</ion-item-divider>
+            <ion-item-divider style="background-color: #fff !important;border-bottom: 0px !important">Date Of Birth<span class="danger" *ngIf="!tech.controls.bdate.valid && (tech.controls.bdate.dirty || submitted)">*</span></ion-item-divider>
             <ion-item no-padding no-margin style="border: 1px solid #aaa;">
               <ion-datetime placeholder="Child Birth Date" displayFormat="DDDD MMM D, YYYY" max="2050-12-31" min="1950-12-31" pickerFormat="DD MMM YYYY"
                 formControlName="bdate"></ion-datetime>

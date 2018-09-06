@@ -28,11 +28,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     //private device: Device,
     public toastCtrl: ToastController,
-<<<<<<< HEAD
     public loadingCtrl: LoadingController,
-=======
-    // public loadingCtrl: LoadingController,
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
     private http: Http,
     public userdata: UserData,
     public navParams: NavParams,
@@ -55,14 +51,10 @@ export class LoginPage {
       headers.append('Access-Control-Allow-Origin', '*')
       headers.append('Content-Type', 'application/json; charset=utf-8');
       // console.log(params);
-<<<<<<< HEAD
       let loader = this.loadingCtrl.create({
 
       });
       loader.present();
-=======
-      this.loading = true;
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
 
       let url = this.common.PARENT_LOGIN;
       console.log(url);
@@ -72,11 +64,12 @@ export class LoginPage {
           let data = res.json();
           console.log(data);
           if (data) {
+
+            var name = data.UserFullName;
+            var name_split = name.split(" ");
+            this.userdata.user_Login(data.UserId, name_split[0], name_split[1], data.Token);
             this.navCtrl.setRoot(HomePage);
-<<<<<<< HEAD
             loader.dismiss();
-=======
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
           }
           else {
             const toast = this.toastCtrl.create({
@@ -84,7 +77,6 @@ export class LoginPage {
               duration: 2000
             });
             toast.present();
-<<<<<<< HEAD
             loader.dismiss();
           }
 
@@ -104,35 +96,8 @@ export class LoginPage {
     }
     else {
       //  loader.dismiss();
-=======
-          }
-          // if (data.success) {
-          //   console.log("done");
-          //   this.loading = false;
-          //   console.log(data.data[0]);
-          //   // this.navCtrl.setRoot(HomePage);
-          //   // this.user_data = data.data[0];
-          //   // this.userdata.user_register(this.user_data.user_id, this.user_data.firstname, this.user_data.lastname, this.ionform.value.email, this.ionform.value.password, this.user_data.mobile_no, this.user_data.qr_code);
-
-          // }
-          // else {
-          //   const toast = this.toastCtrl.create({
-          //     message: data.message,
-          //     duration: 2000
-          //   });
-          //   toast.present();
-          //   this.loading = false;
-
-        }, error => {
-          var data = error.json();
-          console.log(data);
-          this.loading = false;
-        });
-    }
-    else {
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
       const toast = this.toastCtrl.create({
-        message: "Invalid Credential",
+        message: "Enter Mobileno or Password",
         duration: 2000
       });
       toast.present();

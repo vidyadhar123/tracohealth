@@ -125,7 +125,7 @@ export class UserData {
 
 
 
-  user_register(user_id: any, firstname: any, lastname: any, email: any, password: any, mobileno: any, qrcode: any) {
+  user_register(user_id: any, firstname: any, lastname: any, email: any, password: any, mobileno: any) {
 
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.storage.set('user_id', user_id);
@@ -134,10 +134,31 @@ export class UserData {
     this.storage.set('email', email);
     this.storage.set('password', password);
     this.storage.set('mobileno', mobileno);
-    this.storage.set('qrcode', qrcode);
 
     this.events.publish('user:login');
   }
+
+
+  user_Login(user_id: any, firstname: any, lastname: any, token: any) {
+
+    this.storage.set(this.HAS_LOGGED_IN, true);
+    this.storage.set('user_id', user_id);
+    this.storage.set('firstname', firstname);
+    this.storage.set('lastname', lastname);
+    this.storage.set('token', token);
+    // this.storage.set('email', email);
+    // this.storage.set('password', password);
+    // this.storage.set('mobileno', mobileno);
+
+    this.events.publish('user:login');
+  }
+
+
+  getUserFullname(): Promise<string> {
+    return this.storage.get('user_name').then((value) => {
+      return value;
+    });
+  };
 
   user_update(city_state_id: any, gstin: any, email: any, is_call_allow: any) {
     this.storage.set('city_state_id', city_state_id);

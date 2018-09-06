@@ -38,7 +38,11 @@ export class Common {
 	//Parent_call 
 	public PARENT_REFGISTRATION: string = this.URL_ROOT + "User/CreateUser";
 	public PARENT_LOGIN: string = this.URL_ROOT + "Authentication/Login";
-	public CHILD_REFGISTRATION: string = this.URL_ROOT + "User/CreateUser";
+	public CHILD_REGISTRATION: string = this.URL_ROOT + "Children/AddNewChild";
+	public CHILD_LIST: string = this.URL_ROOT + "Children/GetAllChildByParentId";
+	
+
+
 
 
 	public USER_LOGIN: string = this.URL_ROOT + "user_api/user_login";

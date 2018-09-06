@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController,/* LoadingController,*/ ToastController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
 import { Common } from '../../providers/common';
-import { HomePage } from '../home/home';
-import { Http } from '@angular/http';
+
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 //import { Device } from '@ionic-native/device';
 import { UserData } from '../../providers/user-data';
@@ -14,7 +14,7 @@ import { UserData } from '../../providers/user-data';
 })
 export class RegPage {
   public address: any;
-  ionform: FormGroup;
+  //ionform: FormGroup;
 
   form: FormGroup;
   mobileno: any;
@@ -23,40 +23,26 @@ export class RegPage {
   states: any
   city: any
 
-
+  parent_id: any;
   public loading: boolean = false;
   public user_detail: any;
   submitted = false;
   constructor(public navCtrl: NavController,
     // private device: Device,
     public toastCtrl: ToastController,
-    // public loadingCtrl: LoadingController,
+    public loadingCtrl: LoadingController,
     private http: Http,
     public userdata: UserData,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
     public common: Common) {
 
-    this.getcountry();
+    // this.getcountry();
 
-    if (this.navParams.get('mobile')) {
-      console.log(this.navParams.get('mobile'));
-      this.mobileno = this.navParams.get('mobile');
+    if (this.navParams.get('parentId')) {
+      console.log(this.navParams.get('parentId'));
+      this.parent_id = this.navParams.get('parentId');
     }
-
-    if (this.navParams.get('user_detail')) {
-      console.log(this.navParams.get('user_detail'));
-      this.user_detail = this.navParams.get('user_detail');
-    }
-
-
-    this.ionform = this.formBuilder.group({
-      firstname: ['', Validators.compose([Validators.minLength(2), Validators.maxLength(50), Validators.required])],
-      //firstname: ['', Validators.compose([Validators.minLength(2), Validators.maxLength(50), Validators.required])],
-
-      gender: ['']
-
-    });
 
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
@@ -91,105 +77,71 @@ export class RegPage {
     control.removeAt(i);
   }
 
-  onNext() {
-    this.submitted = true;
-    if (this.ionform.valid) {
-      this.navCtrl.push('RegisterPage', { username: this.ionform.value.username, mobile: this.ionform.value.mobileno, password: this.ionform.value.password, user_detail: this.user_detail })
-    }
-  }
-
 
   onRegister() {
-    this.navCtrl.setRoot(HomePage);
-    //this.submitted = true;
-    // if (this.ionform.valid) {
-    //   var params = "email=" + this.ionform.value.email +
-    //     "&firstname=" + this.ionform.value.firstname +
-    //     "&lastname=" + this.ionform.value.lastname +
-    //     "&password=" + this.ionform.value.password +
-    //     "&mobile_no=" + this.ionform.value.mobileno +
-    //     "&city_id=" + this.ionform.value.city +
-    //     "&state_id=" + this.ionform.value.state +
-    //     "&country_id=" + this.ionform.value.country;
+    // this.navCtrl.setRoot(HomePage);
+    this.submitted = true;
+    console.log(this.form.value.technologies);
 
 
-    //   var headers = new Headers();
-    //   headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    //   console.log(params);
-    //   this.loading = true;
-    //   let url = this.common.USER_REGISTRATION;
-    //   this.http.post(url, params, { headers: headers })
-    //     //.map(res => res.json())
-    //     .subscribe(res => {
-
-    //       let data = res.json();
-    //       console.log(data);
-    //       if (data.success) {
-    //         console.log("done");
-    //         this.loading = false;
-    //         this.userdata.user_register(data.user_id, this.ionform.value.firstname, this.ionform.value.lastname, this.ionform.value.email, this.ionform.value.password, this.ionform.value.mobileno, data.qr_code);
-    //         this.navCtrl.setRoot(HomePage);
-    //         //
-
-    //       }
-    //       else {
-    //         const toast = this.toastCtrl.create({
-    //           message: data.message,
-    //           duration: 2000
-    //         });
-    //         toast.present();
-    //         this.loading = false;
-    //       }
-    //     }, error => {
-    //       var data = error.json();
-    //       console.log(data);
-    //       this.loading = false;
-    //     });
-    // }
-  }
-
-
-  getcountry() {
-
-    this.http.get(this.common.GET_COUNTRY)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        if (data.success) {
-          this.country = data.data;
+    this.form.value.technologies.forEach((element: any) => {
+      if (this.form.controls.technologies.valid) {
+        var params = {
+          "parentId": this.parent_id,
+          "firstName": element.name,
+          "lastName": element.lname,
+          "dateOfBirth": element.bdate,
+          "height": element.height,
+          "weight": element.weight,
+          "gender": 0,
+          "parentFirstName": '',
+          "parentLastName": ''
         }
-      }, error => {
-        console.log(error);
-        alert(JSON.stringify(error));
-      });
+
+        var headers = new Headers();
+        headers.append('Access-Control-Allow-Origin', '*')
+        headers.append('Content-Type', 'application/json; charset=utf-8');
+        console.log(params);
+        let loader = this.loadingCtrl.create({
+
+        });
+        loader.present();
+        let url = this.common.CHILD_REGISTRATION;
+        this.http.post(url, params, { headers: headers })
+          .subscribe((res: any) => {
+
+            let data = res.json();
+            console.log(data);
+            if (data) {
+              console.log("done");
+              loader.dismiss();
+              this.navCtrl.pop();
+            }
+            else {
+              const toast = this.toastCtrl.create({
+                message: data.message,
+                duration: 2000
+              });
+              toast.present();
+              loader.dismiss();
+            }
+          }, error => {
+            loader.dismiss().then(_ => {
+              const toast = this.toastCtrl.create({
+                message: "Something went wrong! please try again",
+                duration: 2000
+              });
+              toast.present();
+            });
+            var data = error.json();
+            console.log(data);
+          });
+      }
+    });
+
   }
 
-  getStates() {
-    this.http.get(this.common.GET_STATE + '?country_id=' + this.ionform.value.country)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        // loader.dismiss();
-        this.states = data.data;
-      }, error => {
-        console.log(error);
-        alert(JSON.stringify(error));
-      });
-  }
 
-
-  getCity() {
-    this.http.get(this.common.GET_CITY + '?state_id=' + this.ionform.value.state)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        // loader.dismiss();
-        this.city = data.data;
-      }, error => {
-        console.log(error);
-        alert(JSON.stringify(error));
-      });
-  }
 
 
 

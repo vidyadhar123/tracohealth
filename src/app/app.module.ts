@@ -18,6 +18,11 @@ import { TransactionPage } from '../pages/transaction/transaction';
 import { RegistrationPage } from '../pages/registration/registration';
 import { MyFeedPage } from '../pages/my_feed/my_feed';
 import { NewFeedPage } from '../pages/new_feed/new_feed';
+import { TrackSummaryPage } from '../pages/track_summary/track_summary';
+
+import { TipsPage } from '../pages/tips_page/tips_page';
+
+
 import { LocationTrackPage } from '../pages/location_track/location_track';
 
 import { ImageResizer } from '@ionic-native/image-resizer';
@@ -42,6 +47,9 @@ import { Network } from '../../node_modules/@ionic-native/network';
 
 import { RegPage } from '../pages/reg/reg';
 
+import { ChildListPage } from '../pages/child_list/child_list';
+
+
 
 import { VerifyNumberPage } from '../pages/verify_number/verify_number';
 import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
@@ -51,15 +59,18 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     ConferenceApp,
     TransactionPage,
     LoginPage,
+    TipsPage,
     ChangePasswordPage,
     ProfilePage,
     FeedsPage,
     MyFeedPage,
     NewFeedPage,
     RegPage,
+    TrackSummaryPage,
     LocationTrackPage,
     RegistrationPage,
     HomePage,
+    ChildListPage,
     VerifyNumberPage,
     VerifyOtpPage
   ],
@@ -82,8 +93,13 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
         { component: ChangePasswordPage, name: 'ChangePasswordPage', segment: 'change-password' },
         { component: RegistrationPage, name: 'RegistrationPage', segment: 'registration' },
         { component: RegPage, name: 'RegPage', segment: 'reg' },
+        { component: ChildListPage, name: 'ChildListPage', segment: 'child_list' },
 
         { component: TransactionPage, name: 'TransactionPage', segment: 'transaction' },
+        { component: TrackSummaryPage, name: 'TrackSummaryPage', segment: 'track_summary' },
+        { component: TipsPage, name: 'TipsPage', segment: 'tips_page' },
+
+
       ]
     }),
     IonicStorageModule.forRoot()
@@ -96,13 +112,16 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     MyFeedPage,
     FeedsPage,
     RegPage,
+    TipsPage,
     ChangePasswordPage,
     NewFeedPage,
     ProfilePage,
     LocationTrackPage,
     RegistrationPage,
     TransactionPage,
+    ChildListPage,
     VerifyNumberPage,
+    TrackSummaryPage,
     VerifyOtpPage
   ],
   providers: [

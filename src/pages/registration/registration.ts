@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
 import { NavController, LoadingController, ToastController, NavParams } from 'ionic-angular';
-=======
-import { NavController,/* LoadingController,*/ ToastController, NavParams } from 'ionic-angular';
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Common } from '../../providers/common';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { UserData } from '../../providers/user-data';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-registration',
@@ -61,18 +58,17 @@ export class RegistrationPage {
     });
   }
 
-  onNext() {
-    this.submitted = true;
-    if (this.ionform.valid) {
-      this.navCtrl.push('RegisterPage', { username: this.ionform.value.username, mobile: this.ionform.value.mobileno, password: this.ionform.value.password, user_detail: this.user_detail })
-    }
-  }
+  // onNext() {
+  //   this.submitted = true;
+  //   if (this.ionform.valid) {
+  //this.navCtrl.push('RegisterPage', { parentfirstname: this.ionform.value.firstname, parentlastname: this.ionform.value.lastname })
+  //   }
+  // }
 
 
   onRegister() {
     // this.navCtrl.push('RegPage');
     this.submitted = true;
-<<<<<<< HEAD
 
     if (this.ionform.valid) {
       var params = {
@@ -93,26 +89,6 @@ export class RegistrationPage {
 
       });
       loader.present();
-=======
-
-    if (this.ionform.valid) {
-      var params = {
-        emailId: this.ionform.value.email,
-        firstName: this.ionform.value.firstname,
-        lastName: this.ionform.value.lastname,
-        passwordString: this.ionform.value.password,
-        phoneNumber: parseInt(this.mobileno),
-        gender: this.ionform.value.gender,
-        dateOfBirth: this.ionform.value.birthdate
-      };
-
-      var headers = new Headers();
-      headers.append('Access-Control-Allow-Origin', '*')
-      headers.append('Content-Type', 'application/json; charset=utf-8');
-      console.log(params);
-      this.loading = true;
-
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
       let url = this.common.PARENT_REFGISTRATION;
       console.log(url);
       this.http.post(url, params, { headers: headers })
@@ -123,47 +99,98 @@ export class RegistrationPage {
           console.log(data);
           if (data) {
             console.log("done");
-<<<<<<< HEAD
             loader.dismiss();
-=======
-            this.loading = false;
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
             //this.userdata.user_register(data.user_id, this.ionform.value.firstname, this.ionform.value.lastname, this.ionform.value.email, this.ionform.value.password, this.ionform.value.mobileno, data.qr_code);
-            this.navCtrl.setRoot(HomePage);
+            // this.onLogin();
+            this.navCtrl.setRoot(LoginPage);
           }
           else {
             const toast = this.toastCtrl.create({
-<<<<<<< HEAD
               message: "Something went wrong! please try again",
               duration: 2000
             });
             toast.present();
             loader.dismiss();
 
-=======
-              message: data.message,
+          }
+        }, error => {
+          loader.dismiss().then(_ => {
+            const toast = this.toastCtrl.create({
+              message: "Something went wrong! please try again",
               duration: 2000
             });
             toast.present();
-            this.loading = false;
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
-          }
-        }, error => {
+          });
           var data = error.json();
           console.log(data);
-<<<<<<< HEAD
-          loader.dismiss();
-          const toast = this.toastCtrl.create({
-            message: "Something went wrong! please try again",
-            duration: 2000
-          });
-          toast.present();
-=======
-          this.loading = false;
->>>>>>> 3c97f7f905a04f85447947736bdf5bd526097cee
         });
     }
   }
+
+
+
+  // onLogin() {
+  //   if (this.ionform.valid) {
+  //     // var params = "phoneNumber=" + this.ionform.value.phoneno +
+  //     //   "&password=" + this.ionform.value.password;
+
+  //     var headers = new Headers();
+  //     headers.append('Access-Control-Allow-Origin', '*')
+  //     headers.append('Content-Type', 'application/json; charset=utf-8');
+  //     // console.log(params);
+  //     let loader = this.loadingCtrl.create({
+
+  //     });
+  //     loader.present();
+
+  //     let url = this.common.PARENT_LOGIN;
+  //     console.log(url);
+  //     this.http.post(url, JSON.stringify({ phoneNumber: this.mobileno, password: this.ionform.value.password }), { headers: headers })
+  //       //.map(res => res.json())
+  //       .subscribe(res => {
+  //         let data = res.json();
+  //         console.log(data);
+  //         if (data) {
+
+
+
+  //           this.userdata.user_Login(data.UserId,data.UserFullName);
+  //           this.navCtrl.setRoot(HomePage);
+  //           loader.dismiss();
+  //         }
+  //         else {
+  //           const toast = this.toastCtrl.create({
+  //             message: "Invalid Credential",
+  //             duration: 2000
+  //           });
+  //           toast.present();
+  //           loader.dismiss();
+  //         }
+
+  //       }, error => {
+  //         loader.dismiss().then(_ => {
+  //           const toast = this.toastCtrl.create({
+  //             message: "Something went wrong! please try again",
+  //             duration: 2000
+  //           });
+  //           toast.present();
+  //         });
+  //         var data = error.json();
+  //         console.log(data);
+
+
+  //       });
+  //   }
+  //   else {
+  //     //  loader.dismiss();
+  //     const toast = this.toastCtrl.create({
+  //       message: "Invalid Credential",
+  //       duration: 2000
+  //     });
+  //     toast.present();
+  //   }
+  // }
+
 
 
 

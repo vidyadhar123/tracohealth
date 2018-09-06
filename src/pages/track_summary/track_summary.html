@@ -1,0 +1,128 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>tracohealth</ion-title>
+    <ion-buttons end style="padding-right: 8px;">
+      <span style="color: #fff;font-size: 1.5rem !important;"> Gurugram</span>
+      <ion-icon name="arrow-dropdown" style="color: #fff;"></ion-icon>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <ion-item>
+          <ion-label>Child</ion-label>
+          <ion-select [(ngModel)]="child">
+            <ion-option value="sunny" selected>sunny</ion-option>
+            <ion-option value="kalpesh">kalpesh</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col no-padding>
+        <ion-item>
+          <ion-label>age</ion-label>
+          <ion-select [(ngModel)]="age">
+            <ion-option value="0-2" selected>0-2</ion-option>
+            <ion-option value="2-5">2-5</ion-option>
+            <ion-option value="5-12">5-12</ion-option>
+            <ion-option value="12-18">12-18</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content style="background: #efefef !important;" padding>
+  <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;">
+    <ion-item>
+      <h2>
+        <b>Growth Summary</b>
+      </h2>
+    </ion-item>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="checkmark-circle" color="primary" item-start></ion-icon>
+        <p>Physical Growth</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon item-start name="checkmark-circle" color="danger"></ion-icon>
+        <p>Emotional Growth</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="checkmark-circle" color="facebook" item-start></ion-icon>
+        <p>Other Growth</p>
+      </ion-item>
+      <p>
+        Lorem Ipsum as model will many web sites still over publishing the years.
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button item-end block full style="height: 30px;box-shadow: none!important;background-color: #b16c36 !important;"
+    (click)="onTips()" no-padding no-margin class="btn">
+    Next
+  </button>
+</ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Tracker
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Tips
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Summary
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="bowtie"></ion-icon>
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
