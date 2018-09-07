@@ -70,7 +70,7 @@ export class TrackSummaryPage {
 
   onTips() {
     console.log("Tips Page");
-    //this.navCtrl.push("TipsPage");
+    this.navCtrl.push("TipsPage");
   }
 
 }
