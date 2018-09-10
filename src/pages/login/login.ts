@@ -37,7 +37,7 @@ export class LoginPage {
 
     this.ionform = formBuilder.group({
       phoneno: ['', Validators.compose([Validators.required])],
-      password: ['', Validators.compose([Validators.minLength(3), Validators.required])],
+      password: ['', Validators.compose([Validators.required])],
     });
   }
 
@@ -73,7 +73,7 @@ export class LoginPage {
           }
           else {
             const toast = this.toastCtrl.create({
-              message: "Invalid Credential",
+              message: "Mobile number or password is incorrect",
               duration: 2000
             });
             toast.present();
@@ -83,7 +83,7 @@ export class LoginPage {
         }, error => {
           loader.dismiss().then(_ => {
             const toast = this.toastCtrl.create({
-              message: "Something went wrong! please try again",
+              message: "Mobile number or password is incorrect",
               duration: 2000
             });
             toast.present();
@@ -97,7 +97,7 @@ export class LoginPage {
     else {
       //  loader.dismiss();
       const toast = this.toastCtrl.create({
-        message: "Enter Mobileno or Password",
+        message: "Please enter Mobile number and Password",
         duration: 2000
       });
       toast.present();

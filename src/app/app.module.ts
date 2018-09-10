@@ -48,6 +48,8 @@ import { Network } from '../../node_modules/@ionic-native/network';
 import { RegPage } from '../pages/reg/reg';
 
 import { ChildListPage } from '../pages/child_list/child_list';
+import { CategoryListPage } from '../pages/category_list/category_list';
+
 
 
 
@@ -65,6 +67,7 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     FeedsPage,
     MyFeedPage,
     NewFeedPage,
+    CategoryListPage,
     RegPage,
     TrackSummaryPage,
     LocationTrackPage,
@@ -94,6 +97,7 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
         { component: RegistrationPage, name: 'RegistrationPage', segment: 'registration' },
         { component: RegPage, name: 'RegPage', segment: 'reg' },
         { component: ChildListPage, name: 'ChildListPage', segment: 'child_list' },
+        { component: CategoryListPage, name: 'CategoryListPage', segment: 'category_list' },
 
         { component: TransactionPage, name: 'TransactionPage', segment: 'transaction' },
         { component: TrackSummaryPage, name: 'TrackSummaryPage', segment: 'track_summary' },
@@ -116,6 +120,7 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     ChangePasswordPage,
     NewFeedPage,
     ProfilePage,
+    CategoryListPage,
     LocationTrackPage,
     RegistrationPage,
     TransactionPage,
