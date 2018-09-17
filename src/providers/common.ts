@@ -39,9 +39,19 @@ export class Common {
 	public PARENT_REFGISTRATION: string = this.URL_ROOT + "User/CreateUser";
 	public PARENT_LOGIN: string = this.URL_ROOT + "Authentication/Login";
 	public CHILD_REGISTRATION: string = this.URL_ROOT + "Children/AddNewChild";
-	public CHILD_LIST: string = this.URL_ROOT + "Children/GetAllChildByParentId";
-	
+	public CHILD_UPDATE: string = this.URL_ROOT + "Children/UpdateChildDetails";
 
+	public CHILD_LIST: string = this.URL_ROOT + "Children/GetAllChildByParentId";
+
+	public DELETE_CHILD: string = this.URL_ROOT + "Children/DeleteChildById";
+
+	
+	public SEND_OTP: string = this.URL_ROOT + "Authentication/SendOTP";
+	//phoneNumber=8200671532
+
+
+	public VERIFY_OTP:string = this.URL_ROOT + "Authentication/VerifyOTP";
+	//?phoneNumber=8200671532&recievedOTP=3527
 
 
 

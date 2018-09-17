@@ -7,8 +7,8 @@
   <!-- style="background: linear-gradient(#fd7924 , #ff9132, #ffa841);" -->
   <div padding>
     <p>Please enter OTP you have received in your INBOX.</p>
-    
-    <form [formGroup]="ionform">
+
+    <form #verificationform="ngForm">
       <ion-list class="no-border" no-margin margin-left margin-right>
 
         <ion-item *ngIf="mobileno">
@@ -18,19 +18,25 @@
           </span>
         </ion-item>
         <ion-item margin-bottom style="border: 1px solid #aaa;">
-         
-          <ion-input type="number" formControlName="otp" placeholder="Enter OTP here" [class.invalid]="!ionform.controls.otp.valid && (ionform.controls.otp.dirty || submitted)"
-            required></ion-input>
+          <ion-input [(ngModel)]="vform.otp" ngModel name="otp"  #otp="ngModel" spellcheck="false" autocapitalize="off"
+            required style="border-bottom: 1px solid #999;"  maxlength="4" type="tel">
+          </ion-input>
         </ion-item>
       </ion-list>
 
       <ion-row>
         <ion-col padding-left padding-right>
-          <button ion-button class="login-button" color="button_color" (click)="onSignup()" round>Verify</button>
+          <button ion-button class="login-button" color="button_color" (click)="verifyOTP()" round>Verify</button>
         </ion-col>
       </ion-row>
 
+      <!-- <ion-row>
+        <ion-col padding-left padding-right>
+          <button ion-button class="login-button" color="button_color" (click)="checkPermission()" round>Receive SMS</button>
+        </ion-col>
+      </ion-row> -->
+
     </form>
-    <p *ngIf="otp">otp is: {{otp}}</p>
+    <!-- <p *ngIf="otp">otp is: {{otp}}</p> -->
   </div>
 </ion-content>

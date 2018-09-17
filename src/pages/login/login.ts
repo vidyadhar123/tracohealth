@@ -36,7 +36,7 @@ export class LoginPage {
     public common: Common) {
 
     this.ionform = formBuilder.group({
-      phoneno: ['', Validators.compose([Validators.required])],
+      phoneno: ['', Validators.compose([Validators.pattern("[0-9]{10,10}"), Validators.required])],
       password: ['', Validators.compose([Validators.required])],
     });
   }

@@ -23,11 +23,15 @@
           <ion-row>
             <ion-col>
               <ion-list inset class="no-border">
+                <!-- <ion-item style="background: transparent !important;">
+                  <span class="danger" style="color: red !important" *ngIf="!ionform.controls.phoneno.valid && (ionform.controls.phoneno.dirty || submitted)">* (length 10)</span>
+                </ion-item> -->
                 <ion-item style="margin-bottom: 10px;border: 1px solid #aaa;">
                   <ion-label>
                     <ion-icon name="call" style="color: #2c59ff;"></ion-icon>
                   </ion-label>
-                  <ion-input formControlName="phoneno" type="number" placeholder="Enter Mobile Number" [class.invalid]="!ionform.controls.phoneno.valid && (ionform.controls.phoneno.dirty || submitted)"></ion-input>
+                  <ion-input formControlName="phoneno" pattern="[1-9]{1}[0-9]{9}" maxlength="10" type="tel" placeholder="Enter Mobile Number"
+                    [class.invalid]="!ionform.controls.phoneno.valid && (ionform.controls.phoneno.dirty || submitted)"></ion-input>
                 </ion-item>
 
                 <ion-item style="margin-bottom: 10px;border: 1px solid #aaa;">

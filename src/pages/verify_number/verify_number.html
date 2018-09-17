@@ -18,15 +18,15 @@
       <ion-list class="no-border" no-margin margin-right margin-left>
         <ion-item style="background: transparent !important;">
           <ion-label no-margin>Mobile Number
-            <span class="danger" *ngIf="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)">*</span>
+            <span class="danger" *ngIf="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)">* (length 10)</span>
           </ion-label>
         </ion-item>
         <ion-item style="border: 1px solid #aaa;margin-bottom: 10px !important;">
           <ion-label>
             <ion-icon name="call" style="color: #2c59ff;"></ion-icon>
           </ion-label>
-          <ion-input formControlName="mobileno" type="number" placeholder="Enter Mobile Number here" [class.invalid]="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)"
-            required></ion-input>
+          <ion-input formControlName="mobileno" pattern="[1-9]{1}[0-9]{9}" maxlength="10" type="tel" placeholder="Enter Mobile Number here" [class.invalid]="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)"
+            required ></ion-input>
         </ion-item>
       </ion-list>
 

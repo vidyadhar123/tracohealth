@@ -32,8 +32,21 @@
     <form [formGroup]="ionform">
 
       <ion-item style="background: transparent !important;">
+        <ion-label no-margin>Mobile No
+          <span class="danger" *ngIf="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)">* required(10 digit)</span>
+        </ion-label>
+      </ion-item>
+      <ion-item style="border: 1px solid #aaa;margin-bottom: 10px !important;">
+        <ion-label>
+          <ion-icon name="call" style="color: #2c59ff;"></ion-icon>
+        </ion-label>
+        <ion-input [disabled]="true"  formControlName="mobileno" type="number" [class.invalid]="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)"></ion-input>
+      </ion-item>
+
+
+      <ion-item style="background: transparent !important;">
         <ion-label no-margin>First Name
-          <span class="danger" *ngIf="!ionform.controls.firstname.valid && (ionform.controls.firstname.dirty || submitted)">* required(min 2)</span>
+          <span class="danger" *ngIf="!ionform.controls.firstname.valid && (ionform.controls.firstname.dirty || submitted)">* required (minimum 2)</span>
         </ion-label>
       </ion-item>
 
@@ -46,7 +59,7 @@
 
       <ion-item style="background: transparent !important;">
         <ion-label no-margin>Last Name
-          <span class="danger" *ngIf="!ionform.controls.lastname.valid && (ionform.controls.lastname.dirty || submitted)">* required(min 2)</span>
+          <span class="danger" *ngIf="!ionform.controls.lastname.valid && (ionform.controls.lastname.dirty || submitted)">* required (minimum 2)</span>
         </ion-label>
       </ion-item>
 
@@ -72,7 +85,7 @@
 
       <ion-item style="background: transparent !important;">
         <ion-label no-margin>Password
-          <span class="danger" *ngIf="!ionform.controls.password.valid && (ionform.controls.password.dirty || submitted)">* required(min 6)</span>
+          <span class="danger" *ngIf="!ionform.controls.password.valid && (ionform.controls.password.dirty || submitted)">* required (minimum 6)</span>
         </ion-label>
       </ion-item>
 

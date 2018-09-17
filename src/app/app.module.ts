@@ -28,6 +28,7 @@ import { LocationTrackPage } from '../pages/location_track/location_track';
 import { ImageResizer } from '@ionic-native/image-resizer';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Camera } from '@ionic-native/camera';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 
@@ -49,9 +50,7 @@ import { RegPage } from '../pages/reg/reg';
 
 import { ChildListPage } from '../pages/child_list/child_list';
 import { CategoryListPage } from '../pages/category_list/category_list';
-
-
-
+import { SMS } from '@ionic-native/sms';
 
 import { VerifyNumberPage } from '../pages/verify_number/verify_number';
 import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
@@ -138,7 +137,9 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     PhotoViewer,
     Device,
     Camera,
+    AndroidPermissions,
     File,
+    SMS,
     Connectivity,
     GoogleMaps,
     FileTransfer,

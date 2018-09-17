@@ -4,6 +4,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { UserData } from '../providers/user-data';
 import { LoginPage } from '../pages/login/login';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 // import 'rxjs/add/operator/map';
 // import { GoogleMaps } from '../providers/google-maps';
 // import { Geolocation } from '@ionic-native/geolocation';
@@ -50,10 +51,11 @@ export class ConferenceApp {
     public menu: MenuController,
     public platform: Platform,
     public userData: UserData,
-   // public geolocation: Geolocation,
+    public androidPermissions: AndroidPermissions,
+    // public geolocation: Geolocation,
     public splashScreen: SplashScreen,
     public alertCtrl: AlertController
-   // public maps: GoogleMaps
+    // public maps: GoogleMaps
 
   ) {
     // setTimeout(() => {
@@ -66,6 +68,8 @@ export class ConferenceApp {
     // }, 2000);
 
 
+
+
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       if (hasLoggedIn) {
         this.rootPage = HomePage;
@@ -75,6 +79,7 @@ export class ConferenceApp {
       }
       this.platformReady()
     });
+
 
 
     this.listenToLoginEvents();
@@ -103,6 +108,8 @@ export class ConferenceApp {
   }
 
 
+
+
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
       this.enableMenu(true);
@@ -124,6 +131,28 @@ export class ConferenceApp {
     console.log("Enter App-Component Page");
   }
 
+  checkPermission() {
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_SMS).then(
+      (success: any) => {
+        console.log(success);
+      },
+      (err: any) => {
+
+        console.log(err);
+        this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.READ_SMS).
+          then(success => {
+            console.log(success);
+          },
+            (err: any) => {
+              console.log(err);
+              console.log("cancelled")
+            });
+      });
+
+    console.log("check");
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.READ_SMS]);
+
+  }
 
 
 
@@ -132,6 +161,7 @@ export class ConferenceApp {
     this.platform.ready().then(() => {
       console.log("go into start");
       this.splashScreen.hide();
+      this.checkPermission();
 
     }).catch((error: any) => {
       alert('Ready, ' + JSON.stringify(error));

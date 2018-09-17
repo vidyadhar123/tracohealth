@@ -42,13 +42,9 @@ export class RegistrationPage {
       this.mobileno = this.navParams.get('mobile');
     }
 
-    if (this.navParams.get('user_detail')) {
-      console.log(this.navParams.get('user_detail'));
-      this.user_detail = this.navParams.get('user_detail');
-    }
-
 
     this.ionform = this.formBuilder.group({
+      mobileno: [this.mobileno ? this.mobileno : '', Validators.compose([Validators.maxLength(10), Validators.required])],
       firstname: ['', Validators.compose([Validators.minLength(2), Validators.maxLength(50), Validators.required])],
       lastname: ['', Validators.compose([Validators.minLength(2), Validators.maxLength(50), Validators.required])],
       gender: ['0'],
@@ -76,7 +72,7 @@ export class RegistrationPage {
         firstName: this.ionform.value.firstname,
         lastName: this.ionform.value.lastname,
         passwordString: this.ionform.value.password,
-        phoneNumber: parseInt(this.mobileno),
+        phoneNumber: parseInt(this.ionform.value.mobileno),
         gender: this.ionform.value.gender,
         dateOfBirth: this.ionform.value.birthdate
       };
