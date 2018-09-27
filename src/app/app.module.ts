@@ -54,6 +54,16 @@ import { SMS } from '@ionic-native/sms';
 
 import { VerifyNumberPage } from '../pages/verify_number/verify_number';
 import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
+import { CategoryAllPage } from '../pages/category_all/category_all';
+import { CategoryPage } from '../pages/category/category';
+import { CartPage } from '../pages/cart/cart';
+import { CheckoutPage } from '../pages/checkout/checkout';
+import { PaymentmethodPage } from '../pages/payment_method/payment_method';
+
+import { SelectAddressesPage } from '../pages/select_address/select_address';
+
+
+
 
 @NgModule({
   declarations: [
@@ -61,14 +71,20 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     TransactionPage,
     LoginPage,
     TipsPage,
+    CategoryPage,
+    CartPage,
     ChangePasswordPage,
     ProfilePage,
     FeedsPage,
     MyFeedPage,
     NewFeedPage,
+    PaymentmethodPage,
     CategoryListPage,
+    CategoryAllPage,
     RegPage,
+    CheckoutPage,
     TrackSummaryPage,
+    SelectAddressesPage,
     LocationTrackPage,
     RegistrationPage,
     HomePage,
@@ -97,10 +113,17 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
         { component: RegPage, name: 'RegPage', segment: 'reg' },
         { component: ChildListPage, name: 'ChildListPage', segment: 'child_list' },
         { component: CategoryListPage, name: 'CategoryListPage', segment: 'category_list' },
+        { component: CategoryAllPage, name: 'CategoryAllPage', segment: 'category_all' },
+        { component: CategoryPage, name: 'CategoryPage', segment: 'category' },
+
+        { component: CartPage, name: 'CartPage', segment: 'cart' },
+        { component: SelectAddressesPage, name: 'SelectAddressesPage', segment: 'select_address' },
 
         { component: TransactionPage, name: 'TransactionPage', segment: 'transaction' },
         { component: TrackSummaryPage, name: 'TrackSummaryPage', segment: 'track_summary' },
         { component: TipsPage, name: 'TipsPage', segment: 'tips_page' },
+        { component: CheckoutPage, name: 'CheckoutPage', segment: 'checkout' },
+        { component: PaymentmethodPage, name: 'PaymentmethodPage', segment: 'payment_method' },
 
 
       ]
@@ -116,7 +139,12 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     FeedsPage,
     RegPage,
     TipsPage,
+    CartPage,
+    CategoryPage,
     ChangePasswordPage,
+    SelectAddressesPage,
+    PaymentmethodPage,
+    CategoryAllPage,
     NewFeedPage,
     ProfilePage,
     CategoryListPage,
@@ -124,6 +152,7 @@ import { VerifyOtpPage } from '../pages/verify_otp/verify_otp';
     RegistrationPage,
     TransactionPage,
     ChildListPage,
+    CheckoutPage,
     VerifyNumberPage,
     TrackSummaryPage,
     VerifyOtpPage

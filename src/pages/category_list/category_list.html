@@ -12,7 +12,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content style="background: #efefef !important;" padding>
+<ion-content style="background: #efefef !important;">
 
   <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;">
 
@@ -29,9 +29,69 @@
 
       <ion-item>
         <p>Category 1</p>
+        <h3 class="grid-heading">
+          <span (click)="open_all()" style="color: #005d98;"> see all &rarr;</span>
+        </h3>
+        <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
+          <ion-grid no-padding no-margin>
+            <ion-row nowrap no-padding no-margin>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/11.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c1p1
+              </ion-col>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/12.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c1p2
+              </ion-col>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/13.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c1p3
+              </ion-col>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/14.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c1p4
+              </ion-col>
+              <!-- <ion-col col col-3 no-padding style="margin-top: 10px">
+                <img src="assets/img/icon-home.png" class="scroll-item" />
+              </ion-col>-->
+            </ion-row>
+          </ion-grid>
+        </ion-scroll>
       </ion-item>
       <ion-item>
         <p>Category 2</p>
+        <h3 class="grid-heading">
+            <span (click)="open_all()" style="color: #005d98;"> see all &rarr;</span>
+        </h3>
+        <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
+          <ion-grid no-padding no-margin>
+            <ion-row nowrap no-padding no-margin>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/15.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c2p1
+              </ion-col>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/12.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c2p2
+              </ion-col>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/16.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c2p3
+              </ion-col>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/17.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c2p4
+              </ion-col>
+              <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+                <img src="assets/img/11.jpg" class="scroll-item" style="height: 80px !important;" />
+                <br/>c2p4
+              </ion-col>
+              <!-- <ion-col col col-3 no-padding style="margin-top: 10px">
+                <img src="assets/img/icon-home.png" class="scroll-item" />
+              </ion-col>-->
+            </ion-row>
+          </ion-grid>
+        </ion-scroll>
       </ion-item>
       <ion-item>
         <p>Category 3</p>
@@ -52,7 +112,7 @@
         <p>Category 8</p>
       </ion-item>
 
-     
+
     </ion-card-content>
   </ion-card>
 </ion-content>

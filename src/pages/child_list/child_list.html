@@ -44,7 +44,7 @@
           Height - Weight:
           <b>{{items.height}} &nbsp;- &nbsp;{{items.weight}}</b>
         </p>
-        
+
       </ion-col>
     </ion-row>
     <!-- <ion-row>
@@ -83,5 +83,5 @@
   <!-- </ion-card> -->
   <!-- </ion-card-content>
   </ion-card> -->
-  <p *ngIf="child_list && child_list == 'No Child Exists for Parent'">No Child Exists for Parent</p>
+  <p *ngIf="!child_list && !load" padding-left>No Child Exists for Parent</p>
 </ion-content>

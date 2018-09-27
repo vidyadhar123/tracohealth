@@ -8,4 +8,33 @@ category_list
     ion-select{
         max-width: 100% !important;
     }
+    .h-container .scroll-content {
+        margin: 0;
+        padding-left: 0!important;
+        padding-right: 0!important
+    }
+    .h-container .row.responsive {
+        border-right: 1px solid #eee;
+        background-color: #444;
+
+    }
+    .grid-heading {
+        text-align: right;
+        span {
+            font-size: 16px;
+            padding-left: 5px;
+        }
+
+        button{
+            float: right; 
+            padding: 12px;
+            background: yellow;
+            color: black;
+            margin-top: -10px;
+            span {
+                font-size: 18px;
+            }
+        }
+
+    }
 }

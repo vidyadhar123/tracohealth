@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Checkout</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background: #efefef">
+
+
+  <ion-card class="card-style" no-padding *ngFor="let product of cartItems">
+    <ion-card-header>
+      <h2 style="font-size: 2.0rem;color: #005d98;">Select Payment</h2>
+    </ion-card-header>
+    <ion-row padding>
+      <ion-col col col-6>
+        <h2 style="font-size: 1.8rem;padding-left: 10px;font-weight: bold;">Cash on Delievery</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding>
+      <ion-col col col-6>
+        <img src="http://www.indiaspeaksdaily.com/wp-content/uploads/2018/06/PayUMoney-logo.png" style="height: 30px;">
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="card-style" no-padding>
+    <ion-card-header>
+      <h2 style="font-size: 2.0rem;color: #005d98;">Price Details</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid class='total-summary' style="font-size: 1.7rem;">
+        <ion-row style="border-bottom: 1px solid #eee;font-family: 'Patua One' !important;" *ngFor="let product of cartItems">
+          <ion-col col col-6 class="ellipsis">
+            Total Amount
+          </ion-col>
+          <ion-col col col-6 style="text-align:right;">
+            {{product.amount}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="footer-space"></div>
+
+</ion-content>
+
+<ion-toolbar position="bottom" style="position: fixed;bottom: 0; padding: 0px;" no-margin>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col no-padding>
+        <button ion-button secondary full style="padding: 0;height: 56px;margin: 0;">
+
+          Place Order</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>

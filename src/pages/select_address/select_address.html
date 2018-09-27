@@ -1,0 +1,36 @@
+<ion-header>
+
+		<ion-navbar>
+		  <ion-title>Select Address</ion-title>
+		</ion-navbar>
+	  
+	  </ion-header>
+	  
+	  
+	  <ion-content>
+		<ion-grid>
+		  <form #selectaddress="ngForm" novalidate>
+			<!--radio-group -->
+			<ion-list  radio-group style="background:#fff;margin-bottom:6px;" name="id" #id>
+			  <ion-list-header style=" color: #005d98;">
+				Choose Delivery Address
+			  </ion-list-header>
+			  <ion-item *ngFor="let address of arry_address" >
+				  <ion-label>
+					<p style="font-weight:bold;">{{address.firstname}} {{address.lastname}}</p>
+					<p *ngIf="address.company">({{address.company}})</p>
+					<p>{{address.address_1}}</p>
+					<p>{{address.address_2}}</p>
+					<p>{{address.city}}, {{address.zone}} - {{address.postcode}}</p>
+					<p>{{address.country}}</p>
+				  </ion-label>
+				
+				<ion-radio item-end  value="{{address.address_id}}" (click)="selectedAddress(address)"></ion-radio>
+			  </ion-item>
+			</ion-list>
+			<ion-row>
+	  
+			</ion-row>
+		  </form>
+		</ion-grid>
+	  </ion-content>

@@ -80,12 +80,9 @@
             <ion-item style="border: 1px solid #aaa;">
               <ion-input type="number" placeholder="Child Weight" maxlength="50" formControlName="weight"></ion-input>
             </ion-item>
-
-
             <!-- Allow generated input field to be removed -->
 
           </ion-item-group>
-
           <span id="sp" ion-button float-left icon-left clear style="color: #005d98 !important;" (click)="addNewInputField()" *ngIf="!child && (i <= 1)">
             <ion-icon name="add"></ion-icon>
             Add a new child

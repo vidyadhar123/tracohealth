@@ -7,6 +7,8 @@ import { File } from '@ionic-native/file';
 import { ActionSheetController, LoadingController, ToastController, AlertController } from 'ionic-angular';
 import { UserData } from '../../providers/user-data';
 import { ComponentsModule } from '../../components/components.module'
+import { CategoryAllPage } from '../category_all/category_all';
+import { CategoryPage } from '../category/category';
 
 @Component({
   selector: 'category_list',
@@ -67,6 +69,12 @@ export class CategoryListPage {
     console.log(this.queryText);
   }
 
+  open_all() {
+    this.navCtrl.push(CategoryAllPage)
+  }
 
+  onCategory() {
+    this.navCtrl.push(CategoryPage)
+  }
 
 }

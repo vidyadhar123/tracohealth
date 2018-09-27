@@ -14,6 +14,7 @@ import { RegPage } from '../reg/reg';
 export class ChildListPage {
 
   child_list: any;
+  load: boolean = false;
   //WooCommerce: any;
   constructor(public navCtrl: NavController,
     public common: Common,
@@ -43,6 +44,7 @@ export class ChildListPage {
     let loader = this.loadingCtrl.create({
     });
     loader.present();
+    this.load = true;
     this.userData.getUser_ID().then((user_id: any) => {
       console.log(user_id);
       console.log(this.common.CHILD_LIST + "?parentId=" + user_id);
@@ -53,10 +55,14 @@ export class ChildListPage {
           loader.dismissAll();
           if (data) {
             this.child_list = data;
+            this.load = false;
+
           }
         }, error => {
           console.log(error);
           loader.dismissAll();
+          this.load = false;
+
         });
     })
   }
@@ -77,6 +83,7 @@ export class ChildListPage {
     let loader = this.loadingCtrl.create({
     });
     loader.present();
+    this.load = true;
     let url = this.common.DELETE_CHILD + "?childId=" + item.id;
     this.http.post(url, "", { headers: headers })
       .subscribe((res: any) => {
@@ -86,10 +93,13 @@ export class ChildListPage {
         if (data == true) {
           console.log("done");
           loader.dismiss();
+          this.load = false;
           // this.navCtrl.push('RegistrationPage', { user_detail: this.user_detail, mobile: this.mobileno });
           this.getChildList();
         }
         else {
+          this.load = false;
+
           const toast = this.toastCtrl.create({
             message: data.message,
             duration: 2000
@@ -104,6 +114,8 @@ export class ChildListPage {
             duration: 2000
           });
           toast.present();
+          this.load = false;
+
         });
         var data = error.json();
         console.log(data);
