@@ -1,0 +1,93 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>tracohealth</ion-title>
+    <ion-buttons end style="padding-right: 8px;">
+      <span style="color: #fff;font-size: 1.5rem !important;"> Gurugram</span>
+      <ion-icon name="arrow-dropdown" style="color: #fff;"></ion-icon>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background: #fff !important;" padding>
+  <h2 style="color: #005d98;
+  text-align: center;">My Subscription</h2>
+  <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;">
+
+    <ion-item>
+
+      <h2>
+        <b>Health subscription</b>
+      </h2>
+    </ion-item>
+    <img src="assets/img/ban_health.jpg">
+    <ul>
+      <li>services 1</li>
+      <li>services 2</li>
+      <li>services 3</li>
+    </ul>
+
+  </ion-card>
+  <h2 style="color: #005d98;
+  text-align: center;">Available subscription</h2>
+  <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;" *ngFor="let news of Tracker_array">
+
+    <ion-item>
+      <h2>
+        <b>{{news.header}}</b>
+      </h2>
+    </ion-item>
+
+    <img src="{{news.media.src}}" class="slide-image" />
+
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="bowtie"></ion-icon>
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

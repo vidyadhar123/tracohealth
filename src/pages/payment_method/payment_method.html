@@ -14,7 +14,7 @@
     <ion-card-header>
       <h2 style="font-size: 2.0rem;color: #005d98;">Select Payment</h2>
     </ion-card-header>
-    <ion-row padding>
+    <!-- <ion-row padding>
       <ion-col col col-6>
         <h2 style="font-size: 1.8rem;padding-left: 10px;font-weight: bold;">Cash on Delievery</h2>
       </ion-col>
@@ -24,7 +24,23 @@
       <ion-col col col-6>
         <img src="http://www.indiaspeaksdaily.com/wp-content/uploads/2018/06/PayUMoney-logo.png" style="height: 30px;">
       </ion-col>
-    </ion-row>
+    </ion-row> -->
+    <form #placeorder="ngForm" novalidate>
+      <ion-list radio-group style="background:#fff;margin-bottom:6px;" [(ngModel)]="payu_payment_method" name="payment_method" #payment_method
+        required>
+        <ion-item>
+          <ion-label>Cash on Delievery</ion-label>
+          <ion-radio value="cod"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>PayU Money</ion-label>
+          <ion-radio value="payU"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <!--<p [hidden]="payment_method.valid || submitted == false" danger padding-left>
+        Payment method is required
+      </p>-->
+    </form>
   </ion-card>
 
   <ion-card class="card-style" no-padding>
@@ -53,7 +69,7 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col no-padding>
-        <button ion-button secondary full style="padding: 0;height: 56px;margin: 0;">
+        <button ion-button secondary full style="padding: 0;height: 56px;margin: 0;" (click)="place()">
 
           Place Order</button>
       </ion-col>

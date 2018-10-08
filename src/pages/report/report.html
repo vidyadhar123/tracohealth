@@ -1,0 +1,237 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>tracohealth</ion-title>
+    <ion-buttons end style="padding-right: 8px;">
+      <span style="color: #fff;font-size: 1.5rem !important;"> Gurugram</span>
+      <ion-icon name="arrow-dropdown" style="color: #fff;"></ion-icon>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <ion-item>
+          <ion-label>Child</ion-label>
+          <ion-select [(ngModel)]="child">
+            <ion-option value="sunny" selected>sunny</ion-option>
+            <ion-option value="kalpesh">kalpesh</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col no-padding>
+        <ion-item>
+          <ion-label>age</ion-label>
+          <ion-select [(ngModel)]="age">
+            <ion-option value="0-2" selected>0-2</ion-option>
+            <ion-option value="2-5">2-5</ion-option>
+            <ion-option value="5-12">5-12</ion-option>
+            <ion-option value="12-18">12-18</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content style="background: #fff !important;" padding>
+
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col col-3>
+        <p><b>Name : </b></p>
+      </ion-col>
+      <ion-col col col-9>
+        <p style="text-align: left">Rom Tesnatia (8-8-2018)</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col col-3>
+        <p><b>Age : </b></p>
+      </ion-col>
+      <ion-col col col-9>
+        <p style="text-align: left">2 year </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col col-3>
+        <p><b>Father : </b></p>
+      </ion-col>
+      <ion-col col col-9>
+        <p style="text-align: left">Tez Tesnatia </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding style="border: 2px solid #efefef;">
+    <ion-row style="text-align: center;background: aliceblue;">
+      <ion-col col col-3>
+        <p style="color: #005d98;">Sr No</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p style="color: #005d98;">Test Type</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p style="color: #005d98;">Result</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p style="color: #005d98;">Range</p>
+      </ion-col>
+
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col col col-3>
+        <p>1</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>abc</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>80</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>(60-10)</p>
+      </ion-col>
+
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col col col-3>
+        <p>2</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>test</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p style="border-radius: 10px;
+        border: 1px solid #f30000;">15</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>(10-20)</p>
+      </ion-col>
+
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col col col-3>
+        <p>3</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>-</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>1</p>
+      </ion-col>
+      <ion-col col col-3>
+        <p>-</p>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <h2 style="color: #005d98;
+  text-align: center;">Report summary</h2>
+  <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;">
+
+    <ion-item>
+      <p style="white-space: normal">Summary reports summarize the results from two data sources: submission forms and
+        ranking forms. For example,
+        the ranking report summarizes all rankings provided by reviewers in a program. This article will walk through
+        the steps of creating, editing, and sharing this report type.</p>
+    </ion-item>
+    <ion-row style="text-align: center;">
+      <ion-col col col-5>
+
+      </ion-col>
+      <ion-col col col-7>
+        Dr raja Bhatt
+      </ion-col>
+
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col col col-5>
+
+      </ion-col>
+      <ion-col col col-7>
+        (1-8-2018)
+      </ion-col>
+
+    </ion-row>
+    <ion-row style="text-align: center;">
+      <ion-col col col-5>
+
+      </ion-col>
+      <ion-col col col-7>
+        Sign
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row style="text-align: center;">
+      <ion-col col col-6>
+        <img class="logo" src="assets/img/tracohealth.png" />
+      </ion-col>
+      <ion-col col col-6>
+        <img class="logo" src="assets/img/ban_health.jpg" />
+      </ion-col>
+
+    </ion-row>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Dignosis Report
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 30px;box-shadow: none!important;" no-padding no-margin class="btn">
+          Suggestios
+        </button>
+      </ion-col>
+     
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="home"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="bowtie"></ion-icon>
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+
+        </button>
+      </ion-col>
+      <ion-col col no-padding>
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

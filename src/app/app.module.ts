@@ -14,7 +14,7 @@ import { FeedsPage } from '../pages/feeds/feeds';
 
 
 import { LoginPage } from '../pages/login/login';
-import { TransactionPage } from '../pages/transaction/transaction';
+//import { TransactionPage } from '../pages/transaction/transaction';
 import { RegistrationPage } from '../pages/registration/registration';
 import { MyFeedPage } from '../pages/my_feed/my_feed';
 import { NewFeedPage } from '../pages/new_feed/new_feed';
@@ -22,6 +22,7 @@ import { TrackSummaryPage } from '../pages/track_summary/track_summary';
 
 import { TipsPage } from '../pages/tips_page/tips_page';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { LocationTrackPage } from '../pages/location_track/location_track';
 
@@ -33,7 +34,7 @@ import { File } from '@ionic-native/file';
 import { FileTransfer } from '@ionic-native/file-transfer';
 
 import { Device } from '@ionic-native/device';
-import { PipesModule } from '../pipes/pipes.module';
+//import { PipesModule } from '../pipes/pipes.module';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { Geolocation } from '@ionic-native/geolocation';
 
@@ -62,13 +63,15 @@ import { PaymentmethodPage } from '../pages/payment_method/payment_method';
 
 import { SelectAddressesPage } from '../pages/select_address/select_address';
 
+import { SubscriptionPage } from '../pages/subscription/subscription';
 
+import { ReportPage } from '../pages/report/report';
 
 
 @NgModule({
   declarations: [
     ConferenceApp,
-    TransactionPage,
+    //  TransactionPage,
     LoginPage,
     TipsPage,
     CategoryPage,
@@ -78,6 +81,7 @@ import { SelectAddressesPage } from '../pages/select_address/select_address';
     FeedsPage,
     MyFeedPage,
     NewFeedPage,
+    ReportPage,
     PaymentmethodPage,
     CategoryListPage,
     CategoryAllPage,
@@ -88,6 +92,7 @@ import { SelectAddressesPage } from '../pages/select_address/select_address';
     LocationTrackPage,
     RegistrationPage,
     HomePage,
+    SubscriptionPage,
     ChildListPage,
     VerifyNumberPage,
     VerifyOtpPage
@@ -96,7 +101,7 @@ import { SelectAddressesPage } from '../pages/select_address/select_address';
     BrowserModule,
     ComponentsModule,
     HttpModule,
-    PipesModule,
+    //PipesModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: HomePage, name: 'HomePage', segment: 'home' },
@@ -118,8 +123,12 @@ import { SelectAddressesPage } from '../pages/select_address/select_address';
 
         { component: CartPage, name: 'CartPage', segment: 'cart' },
         { component: SelectAddressesPage, name: 'SelectAddressesPage', segment: 'select_address' },
+        { component: SubscriptionPage, name: 'SubscriptionPage', segment: 'subscription' },
+        { component: ReportPage, name: 'ReportPage', segment: 'report' },
 
-        { component: TransactionPage, name: 'TransactionPage', segment: 'transaction' },
+        
+
+        // { component: TransactionPage, name: 'TransactionPage', segment: 'transaction' },
         { component: TrackSummaryPage, name: 'TrackSummaryPage', segment: 'track_summary' },
         { component: TipsPage, name: 'TipsPage', segment: 'tips_page' },
         { component: CheckoutPage, name: 'CheckoutPage', segment: 'checkout' },
@@ -147,10 +156,12 @@ import { SelectAddressesPage } from '../pages/select_address/select_address';
     CategoryAllPage,
     NewFeedPage,
     ProfilePage,
+    SubscriptionPage,
     CategoryListPage,
     LocationTrackPage,
     RegistrationPage,
-    TransactionPage,
+    ReportPage,
+    //TransactionPage,
     ChildListPage,
     CheckoutPage,
     VerifyNumberPage,
@@ -169,6 +180,7 @@ import { SelectAddressesPage } from '../pages/select_address/select_address';
     AndroidPermissions,
     File,
     SMS,
+    InAppBrowser,
     Connectivity,
     GoogleMaps,
     FileTransfer,

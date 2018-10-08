@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ModalController, NavController,/* Platform,*/ AlertController } from 'ionic-angular';
 import { NewFeedPage } from '../new_feed/new_feed';
 import { CategoryListPage } from '../category_list/category_list';
+import { SubscriptionPage } from '../subscription/subscription';
 
 @Component({
   selector: 'page-home',
@@ -69,13 +70,18 @@ export class HomePage {
   onTracker() {
     this.navCtrl.push(NewFeedPage);
   }
-  
+
   onCategory() {
     this.navCtrl.push(CategoryListPage);
   }
 
 
+  onSubscription() {
+    this.navCtrl.push(SubscriptionPage);
+  }
 
 
-
+  onReport() {
+    this.navCtrl.push('ReportPage')
+  }
 }
