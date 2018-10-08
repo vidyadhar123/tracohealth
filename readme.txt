@@ -11,7 +11,7 @@
 
 
 =====================================================================================================================
-
+We need to install following plugin in our application. If you get any error from onw of following plugin, plese execute command written below list:
 ## Using following npm libraries  in traco health project
 
     "@ionic-native/android-permissions": "^4.12.2",
