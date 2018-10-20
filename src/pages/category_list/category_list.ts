@@ -9,6 +9,8 @@ import { UserData } from '../../providers/user-data';
 import { ComponentsModule } from '../../components/components.module'
 import { CategoryAllPage } from '../category_all/category_all';
 import { CategoryPage } from '../category/category';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'category_list',
@@ -25,6 +27,8 @@ export class CategoryListPage {
   submitted: boolean = false;
   child: any;
   age: any;
+
+  categries_list: any;
 
   Tracker_array: any =
     [
@@ -55,6 +59,7 @@ export class CategoryListPage {
     public userData: UserData,
     public navParams: NavParams,
     public common: Common,
+    public http: Http,
     public actionSheetCtrl: ActionSheetController,
     public imagePicker: ImagePicker,
     public file: File,
@@ -62,19 +67,47 @@ export class CategoryListPage {
     public loadingCtrl: LoadingController,
   ) {
 
-
+    this.getAllCategories();
   }
 
   updateTab() {
     console.log(this.queryText);
   }
 
-  open_all() {
-    this.navCtrl.push(CategoryAllPage)
+  open_all(cat: any) {
+    this.navCtrl.push(CategoryAllPage, { "category_id": cat.categoryId })
   }
 
-  onCategory() {
-    this.navCtrl.push(CategoryPage)
+  onCategory(product: any) {
+    this.navCtrl.push(CategoryPage, { "productId": product.productId });
   }
+
+  getAllCategories() {
+
+    let loader = this.loadingCtrl.create({
+      dismissOnPageChange: true
+    });
+    loader.present();
+    console.log(this.common.GET_ALL_CATEGORIES);
+    this.http.get(this.common.GET_ALL_CATEGORIES)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+        if (data.length > 0) {
+          this.categries_list = data;
+          loader.dismiss();
+        }
+        else {
+          this.categries_list = [];
+          loader.dismiss();
+        }
+      }, error => {
+        console.log(error);
+        loader.dismiss();
+      });
+
+  }
+
+  //GET_ALL_CATEGORIES
 
 }

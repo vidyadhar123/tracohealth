@@ -12,27 +12,45 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content style="background: #efefef !important;">
+<ion-content style="background: #ffffff !important;">
 
-  <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;">
+  <ion-card class="swing" no-margin style="width: 100%;margin-bottom: 10px;box-shadow: none;">
 
-    <ion-card-content>
-      <ion-item>
-        <h1 item-start style="font-size: 6rem;">
-          27
-        </h1>&#8451;
+    <ion-card-content no-padding>
 
-        <p item-end>AQI:123,Poor
-          <br> Mosture:
-        </p>
-      </ion-item>
-
-      <ion-item>
-        <p>Category 1</p>
+      <ion-item *ngFor="let cat of categries_list">
+        <p style="font-weight: bold;color: #005d98;">{{cat.title}}</p>
         <h3 class="grid-heading">
-          <span (click)="open_all()" style="color: #005d98;"> see all &rarr;</span>
+          <span (click)="open_all(cat)" style="color: #005d98;"> see all &rarr;</span>
         </h3>
-        <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
+
+        <ion-grid no-padding no-margin style="display: block;white-space: nowrap;font-size: 0;overflow: auto;">
+          <ion-row nowrap no-padding no-margin>
+            <ion-col col col-4 no-padding style="margin-top: 10px;text-align: center;margin-left: 10px;margin-right: 10px;background: #ffffff;
+            border: 2px solid #efefef;padding: 16px;border-radius: 10px;"
+              (click)="onCategory(product)" *ngFor="let product of cat.products">
+
+              <img *ngIf="product.image" [src]="'data:image/png;base64,'+ product.image" />
+              <p style="white-space: normal;color: #005d98 !important;" >{{product.productTitle}}</p>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <!-- <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+              <img src="assets/img/12.jpg" class="scroll-item" style="height: 80px !important;" />
+              <br />c1p2
+            </ion-col>
+            <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+              <img src="assets/img/13.jpg" class="scroll-item" style="height: 80px !important;" />
+              <br />c1p3
+            </ion-col>
+            <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
+              <img src="assets/img/14.jpg" class="scroll-item" style="height: 80px !important;" />
+              <br />c1p4
+            </ion-col> -->
+
+      <!-- <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
           <ion-grid no-padding no-margin>
             <ion-row nowrap no-padding no-margin>
               <ion-col col col-3 no-padding style="margin-top: 10px;text-align: center;" (click)="onCategory()">
@@ -51,14 +69,11 @@
                 <img src="assets/img/14.jpg" class="scroll-item" style="height: 80px !important;" />
                 <br/>c1p4
               </ion-col>
-              <!-- <ion-col col col-3 no-padding style="margin-top: 10px">
-                <img src="assets/img/icon-home.png" class="scroll-item" />
-              </ion-col>-->
             </ion-row>
           </ion-grid>
-        </ion-scroll>
-      </ion-item>
-      <ion-item>
+        </ion-scroll> -->
+
+      <!-- <ion-item>
         <p>Category 2</p>
         <h3 class="grid-heading">
             <span (click)="open_all()" style="color: #005d98;"> see all &rarr;</span>
@@ -86,9 +101,6 @@
                 <img src="assets/img/11.jpg" class="scroll-item" style="height: 80px !important;" />
                 <br/>c2p4
               </ion-col>
-              <!-- <ion-col col col-3 no-padding style="margin-top: 10px">
-                <img src="assets/img/icon-home.png" class="scroll-item" />
-              </ion-col>-->
             </ion-row>
           </ion-grid>
         </ion-scroll>
@@ -110,7 +122,7 @@
       </ion-item>
       <ion-item>
         <p>Category 8</p>
-      </ion-item>
+      </ion-item> -->
 
 
     </ion-card-content>
@@ -121,33 +133,39 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col col no-padding>
-        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
           <ion-icon name="home"></ion-icon>
         </button>
       </ion-col>
       <ion-col col no-padding>
-        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
           <ion-icon name="checkmark-circle"></ion-icon>
         </button>
       </ion-col>
       <ion-col col no-padding>
-        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
           <ion-icon name="bowtie"></ion-icon>
 
         </button>
       </ion-col>
       <ion-col col no-padding>
-        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
 
         </button>
       </ion-col>
       <ion-col col no-padding>
-        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
 
         </button>
       </ion-col>
       <ion-col col no-padding>
-        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin class="btn">
+        <button ion-button item-end block full style="height: 56px;box-shadow: none!important;" no-padding no-margin
+          class="btn">
           <ion-icon name="person"></ion-icon>
         </button>
       </ion-col>

@@ -9,7 +9,8 @@ import { UserData } from '../../providers/user-data';
 import { ComponentsModule } from '../../components/components.module';
 import { Storage } from '@ionic/storage';
 import { CartPage } from '../cart/cart';
-
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -40,6 +41,8 @@ export class CategoryPage {
       }
     ]
 
+  product: any;
+
 
   constructor(
     public modalCtrl: ModalController,
@@ -53,6 +56,7 @@ export class CategoryPage {
     public actionSheetCtrl: ActionSheetController,
     public imagePicker: ImagePicker,
     public file: File,
+    public http: Http,
     public events: Events,
     public storage: Storage,
     public alertCtrl: AlertController,
@@ -60,6 +64,7 @@ export class CategoryPage {
   ) {
 
     this.loadCart();
+    this.getProducts(this.navParams.get("productId"));
   }
 
   updateTab() {
@@ -67,8 +72,41 @@ export class CategoryPage {
   }
 
 
+  ionViewWillEnter() {
+    console.log("Enter");
+    this.loadCart();
+  }
+
+  getProducts(product_id: any) {
+    let loader = this.loadingCtrl.create({
+      dismissOnPageChange: true
+    });
+    loader.present();
+    console.log(this.common.GET_PRODUCT + "?productId=" + product_id);
+    this.http.get(this.common.GET_PRODUCT + "?productId=" + product_id)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+        if (data) {
+          this.product = data;
+          loader.dismiss();
+        }
+        else {
+          this.product = "";
+          loader.dismiss();
+        }
+      }, error => {
+        console.log(error);
+        loader.dismiss();
+      });
+
+  }
+
+
   addToCart(product: any) {
+    console.log("before");
     console.log(product);
+    // product.price = 150;
 
     this.storage.get("cart").then((data) => {
 
@@ -86,9 +124,9 @@ export class CategoryPage {
 
         for (let i = 0; i < data.length; i++) {
 
-          if (product.id == data[i].product.id) {
+          if (product.productId == data[i].product.productId) {
             let qty = data[i].qty;
-
+            //data[i].product.price = 
             console.log("Product is already in the cart");
 
             data[i].qty = qty + 1;
@@ -119,6 +157,8 @@ export class CategoryPage {
 
       })
 
+      this.loadCart();
+
     })
 
   }
@@ -138,7 +178,12 @@ export class CategoryPage {
 
 
   openCart() {
-    this.modalCtrl.create(CartPage).present();
+    let modal = this.modalCtrl.create(CartPage);
+    modal.onDidDismiss(data => {
+      console.log('dest2..' + data)
+      this.loadCart();
+    });
+    modal.present();
   }
 
 

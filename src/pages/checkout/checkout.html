@@ -34,14 +34,17 @@
     </ion-card-content>
   </ion-card>
 
+  <h2 style="font-size: 1.5rem;color: #005d98;padding-left: 12px" *ngIf="cartItems">Product Details</h2>
   <ion-card class="card-style" no-padding *ngFor="let product of cartItems">
-    <ion-card-header>
-      <h2 style="font-size: 2.0rem;color: #005d98;">Product Details</h2>
-    </ion-card-header>
+    <!-- <ion-card-header>
+     
+    </ion-card-header> -->
     <ion-row padding>
       <ion-col col col-4 no-padding>
-        <img [src]="product.product.featured_src" class="slide-image">
+        <!-- <img src="assets/img/11.jpg" class="scroll-item" /> -->
+        <img *ngIf="product.product.image" [src]="'data:image/png;base64,'+ product.product.image" />
       </ion-col>
+
       <ion-col no-padding col col-8>
         <ion-row>
           <ion-col col col-12>
@@ -67,17 +70,19 @@
 
   <ion-card class="card-style" no-padding>
     <ion-card-header>
-      <h2 style="font-size: 2.0rem;color: #005d98;">Price Details</h2>
+      <h2 style="font-size: 2.0rem;color: #005d98;">Price Summary</h2>
     </ion-card-header>
     <ion-card-content>
       <ion-grid class='total-summary' style="font-size: 1.7rem;">
-        <ion-row style="border-bottom: 1px solid #eee;font-family: 'Patua One' !important;" *ngFor="let product of cartItems">
+        <ion-row style="border-bottom: 1px solid #eee;font-family: 'Patua One' !important;">
+
           <ion-col col col-6 class="ellipsis">
             Total Amount
           </ion-col>
           <ion-col col col-6 style="text-align:right;">
-            {{product.amount}}
+            {{total}}
           </ion-col>
+
         </ion-row>
       </ion-grid>
     </ion-card-content>
@@ -93,7 +98,8 @@
       <ion-col no-padding>
         <button ion-button secondary full style="padding: 0;height: 56px;margin: 0;" (click)="onPayment()">
 
-          <ion-icon name="cash"></ion-icon>&nbsp;Continue To Payment</button>
+          <ion-icon name="cash"></ion-icon>&nbsp;Continue To Payment
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>

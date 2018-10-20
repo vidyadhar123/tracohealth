@@ -52,23 +52,10 @@ export class ConferenceApp {
     public platform: Platform,
     public userData: UserData,
     public androidPermissions: AndroidPermissions,
-    // public geolocation: Geolocation,
     public splashScreen: SplashScreen,
     public alertCtrl: AlertController
-    // public maps: GoogleMaps
 
   ) {
-    // setTimeout(() => {
-    //   let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement).then(() => {
-
-    //     this.autocompleteService = new google.maps.places.AutocompleteService();
-    //     this.placesService = new google.maps.places.PlacesService(this.maps.map);
-    //     console.log(mapLoaded);
-    //   });
-    // }, 2000);
-
-
-
 
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       if (hasLoggedIn) {
@@ -76,39 +63,17 @@ export class ConferenceApp {
         this.enableMenu(hasLoggedIn === true);
       } else {
         this.rootPage = VerifyNumberPage;
+        this.enableMenu(false);
       }
       this.platformReady()
     });
-
-
-
     this.listenToLoginEvents();
-
-
-    // this.geolocation.getCurrentPosition().then((resp) => {
-
-    //   this.userData.setLat(resp.coords.latitude);
-    //   this.userData.setlng(resp.coords.longitude);
-    // });
-    // ionViewDidLoad() {
-    //   this.http.get(this.url)
-    //     .map(res => res.json())
-    //     .subscribe(data => {
-    //       console.log(data);
-    //       this.items = data;
-    //     });
-
-    //   this.loaddata();
-    // }
   }
 
 
   onPage(page: any) {
     this.nav.setRoot(page);
   }
-
-
-
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
@@ -124,8 +89,6 @@ export class ConferenceApp {
       this.enableMenu(false);
     });
   }
-
-
 
   ionViewDidEnter() {
     console.log("Enter App-Component Page");

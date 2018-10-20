@@ -28,7 +28,9 @@ export class Common {
 	}
 
 	//	private URL_ROOT: string = "http://diamond.servsme.in";
-	private URL_ROOT: string = "http://49.50.103.230:81/api/";
+	private URL_ROOT: string = "http://35.225.91.38:90/api/";
+
+	private URL_ROOT1: string = "http://35.225.91.38:91/api/";
 
 	//http://pbcm.servsme.in/service/user_api/get_feed_list?user_id=2
 
@@ -45,38 +47,48 @@ export class Common {
 
 	public DELETE_CHILD: string = this.URL_ROOT + "Children/DeleteChildById";
 
-	
+
 	public SEND_OTP: string = this.URL_ROOT + "Authentication/SendOTP";
 	//phoneNumber=8200671532
 
 
-	public VERIFY_OTP:string = this.URL_ROOT + "Authentication/VerifyOTP";
+	public VERIFY_OTP: string = this.URL_ROOT + "Authentication/VerifyOTP";
+
+
+	public GET_ALL_CATEGORIES: string = this.URL_ROOT1 + "Product/GetAllCategories";
+	public GET_CATEGORIES: string = this.URL_ROOT1 + "Product/GetCategory";
+	public GET_PRODUCT: string = this.URL_ROOT1 + "Product/GetProduct";
+
+
+
+
+
 	//?phoneNumber=8200671532&recievedOTP=3527
 
 
 
-	public USER_LOGIN: string = this.URL_ROOT + "user_api/user_login";
-	public USER_REGISTRATION: string = this.URL_ROOT + "user_api/registration";
-	public USER_CHANGE_PASSWORD: string = this.URL_ROOT + "user_api/change_password";
+	// public USER_LOGIN: string = this.URL_ROOT + "user_api/user_login";
+	// public USER_REGISTRATION: string = this.URL_ROOT + "user_api/registration";
+	// public USER_CHANGE_PASSWORD: string = this.URL_ROOT + "user_api/change_password";
 
 
-	public USER_TRANSACTION: string = this.URL_ROOT + "user_api/get_user_transactions";
-	public GET_COUNTRY: string = this.URL_ROOT + "all_area/get_country";
-	public GET_STATE: string = this.URL_ROOT + "all_area/get_state";
-	public GET_CITY: string = this.URL_ROOT + "all_area/get_city";
+	// public USER_TRANSACTION: string = this.URL_ROOT + "user_api/get_user_transactions";
+	// public GET_COUNTRY: string = this.URL_ROOT + "all_area/get_country";
+	// public GET_STATE: string = this.URL_ROOT + "all_area/get_state";
+	// public GET_CITY: string = this.URL_ROOT + "all_area/get_city";
 
-	public GET_MY_FEED_LIST: string = this.URL_ROOT + "user_api/get_my_feed_list";
-	public GET_FEEDS_LIST: string = this.URL_ROOT + "user_api/get_feed_list";
-
-
-	public USER_INSERT_FEED: string = this.URL_ROOT + "user_api/insert_user_photo";
-	public USER_LIKE_PHOTO_FEED: string = this.URL_ROOT + "user_api/like_user_photo";
-	public USER_UNLIKE_PHOTO_FEED: string = this.URL_ROOT + "user_api/unlike_user_photo";
-	public USER_REMOVE_PHOTO: string = this.URL_ROOT + "user_api/remove_photo";
-	public USER_REPORT_SPAM: string = this.URL_ROOT + "user_api/report_photo";
+	// public GET_MY_FEED_LIST: string = this.URL_ROOT + "user_api/get_my_feed_list";
+	// public GET_FEEDS_LIST: string = this.URL_ROOT + "user_api/get_feed_list";
 
 
-	public GET_PBCM_LIST: string = this.URL_ROOT + "pbcm/get_pbcm_list";
+	// public USER_INSERT_FEED: string = this.URL_ROOT + "user_api/insert_user_photo";
+	// public USER_LIKE_PHOTO_FEED: string = this.URL_ROOT + "user_api/like_user_photo";
+	// public USER_UNLIKE_PHOTO_FEED: string = this.URL_ROOT + "user_api/unlike_user_photo";
+	// public USER_REMOVE_PHOTO: string = this.URL_ROOT + "user_api/remove_photo";
+	// public USER_REPORT_SPAM: string = this.URL_ROOT + "user_api/report_photo";
+
+
+	// public GET_PBCM_LIST: string = this.URL_ROOT + "pbcm/get_pbcm_list";
 
 
 

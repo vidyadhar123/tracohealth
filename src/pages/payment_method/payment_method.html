@@ -9,22 +9,10 @@
 
 <ion-content style="background: #efefef">
 
-
-  <ion-card class="card-style" no-padding *ngFor="let product of cartItems">
+  <ion-card class="card-style" no-padding>
     <ion-card-header>
-      <h2 style="font-size: 2.0rem;color: #005d98;">Select Payment</h2>
+      <h2 style="font-size: 1.6rem;color: #005d98;">Select Payment</h2>
     </ion-card-header>
-    <!-- <ion-row padding>
-      <ion-col col col-6>
-        <h2 style="font-size: 1.8rem;padding-left: 10px;font-weight: bold;">Cash on Delievery</h2>
-      </ion-col>
-    </ion-row>
-
-    <ion-row padding>
-      <ion-col col col-6>
-        <img src="http://www.indiaspeaksdaily.com/wp-content/uploads/2018/06/PayUMoney-logo.png" style="height: 30px;">
-      </ion-col>
-    </ion-row> -->
     <form #placeorder="ngForm" novalidate>
       <ion-list radio-group style="background:#fff;margin-bottom:6px;" [(ngModel)]="payu_payment_method" name="payment_method" #payment_method
         required>
@@ -45,16 +33,16 @@
 
   <ion-card class="card-style" no-padding>
     <ion-card-header>
-      <h2 style="font-size: 2.0rem;color: #005d98;">Price Details</h2>
+      <h2 style="font-size: 1.6rem;color: #005d98;">Amount to Pay</h2>
     </ion-card-header>
     <ion-card-content>
       <ion-grid class='total-summary' style="font-size: 1.7rem;">
-        <ion-row style="border-bottom: 1px solid #eee;font-family: 'Patua One' !important;" *ngFor="let product of cartItems">
+        <ion-row style="border-bottom: 1px solid #eee;font-family: 'Patua One' !important;" >
           <ion-col col col-6 class="ellipsis">
             Total Amount
           </ion-col>
           <ion-col col col-6 style="text-align:right;">
-            {{product.amount}}
+            {{total}}
           </ion-col>
         </ion-row>
       </ion-grid>

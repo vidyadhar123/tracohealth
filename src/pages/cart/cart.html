@@ -25,9 +25,10 @@
     <ion-item color="light">
 
       <ion-thumbnail item-left>
-        <img [src]="item.product.featured_src" style="width: 60px !important; height: 60px !important;"/>
+          <!-- <img src="assets/img/11.jpg" class="scroll-item"  /> -->
+        <img *ngIf="item.product.image" [src]="'data:image/png;base64,'+ item.product.image" />
       </ion-thumbnail>
-      <h2>{{ item.product.title }}</h2>
+      <h2>{{ item.product.productTitle }}</h2>
       <p>{{ item.qty }} • 
         <span [innerHTML]="item.product.price"></span>
       </p>

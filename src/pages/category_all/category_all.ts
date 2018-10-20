@@ -10,7 +10,8 @@ import { ComponentsModule } from '../../components/components.module'
 import { CategoryPage } from '../category/category';
 import { CartPage } from '../cart/cart';
 import { Storage } from '@ionic/storage';
-
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'category_all',
@@ -28,6 +29,7 @@ export class CategoryAllPage {
   child: any;
   age: any;
   cartCount: any;
+  categries_list: any;
 
   Tracker_array: any =
     [
@@ -57,6 +59,7 @@ export class CategoryAllPage {
     public toastCtrl: ToastController,
     public userData: UserData,
     public events: Events,
+    public http: Http,
     public navParams: NavParams,
     public common: Common,
     public storage: Storage,
@@ -68,14 +71,16 @@ export class CategoryAllPage {
   ) {
 
     this.loadCart();
+
+    this.getAllCategories(this.navParams.get("category_id"));
   }
 
   updateTab() {
     console.log(this.queryText);
   }
 
-  onCategory() {
-    this.navCtrl.push(CategoryPage)
+  onCategory(product: any) {
+    this.navCtrl.push(CategoryPage, { "productId": product.productId });
   }
 
   openCart() {
@@ -93,6 +98,31 @@ export class CategoryAllPage {
       })
 
     })
+
+  }
+
+  getAllCategories(category_id: any) {
+    let loader = this.loadingCtrl.create({
+      dismissOnPageChange: true
+    });
+    loader.present();
+    console.log(this.common.GET_CATEGORIES + "?categoryId=" + category_id);
+    this.http.get(this.common.GET_CATEGORIES + "?categoryId=" + category_id)
+      .map(res => res.json())
+      .subscribe(data => {
+        console.log(data);
+        if (data) {
+          loader.dismiss();
+          this.categries_list = data;
+        }
+        else {
+          loader.dismiss();
+          this.categries_list = [];
+        }
+      }, error => {
+        console.log(error);
+
+      });
 
   }
 

@@ -52,15 +52,15 @@ export class ChildListPage {
         .map(res => res.json())
         .subscribe(data => {
           console.log(data);
-          loader.dismissAll();
+
           if (data) {
             this.child_list = data;
             this.load = false;
-
+            loader.dismiss();
           }
         }, error => {
           console.log(error);
-          loader.dismissAll();
+          loader.dismiss();
           this.load = false;
 
         });

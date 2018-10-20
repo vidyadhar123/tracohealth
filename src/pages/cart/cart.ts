@@ -86,7 +86,7 @@ export class CartPage {
   }
 
   closeModal() {
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss({ data: "update" });
   }
 
 
@@ -127,5 +127,5 @@ export class CartPage {
     this.navCtrl.push(SelectAddressesPage);
   }
 
- 
+
 }

@@ -64,10 +64,10 @@ page-home {
         text-align: center; 
     }
 
-    .card-md{
+    .card-md,.card-ios{
         margin: 10px !important;
-    border-radius: 2px;
-    width: calc(100% - 20px) !important;
+        border-radius: 2px;
+        width: calc(100% - 20px) !important;
     }
     .card-title {
         display: block;
